@@ -1,0 +1,71 @@
+
+<!DOCTYPE html>
+<html lang="ar">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Castle Light - نيون ساين</title>
+  <style>
+    body {
+      background-color: #111;
+      color: white;
+      font-family: sans-serif;
+      text-align: center;
+      padding: 2rem;
+    }
+    h1 {
+      font-size: 2.5rem;
+      color: #fff;
+      margin-bottom: 1rem;
+    }
+    #preview {
+      font-size: 3rem;
+      margin-top: 2rem;
+      text-shadow: 0 0 5px, 0 0 10px, 0 0 20px;
+    }
+    select, input[type="color"], input[type="text"] {
+      margin: 1rem;
+      padding: 0.5rem;
+      font-size: 1rem;
+    }
+    .controls {
+      margin-top: 1rem;
+    }
+  </style>
+</head>
+<body>
+  <h1>Castle Light - توليد نيون ساين</h1>
+  <div class="controls">
+    <input type="text" id="textInput" placeholder="اكتب النص هنا" oninput="updatePreview()">
+
+    <select id="fontSelect" onchange="updatePreview()">
+      <option value="'Neon Tubes'">Neon Tubes</option>
+      <option value="'Raleway Dots'">Raleway Dots</option>
+      <option value="'Pacifico'">Pacifico</option>
+      <option value="'Cairo'">Cairo (عربي)</option>
+    </select>
+
+    <input type="color" id="colorPicker" value="#00ffff" onchange="updatePreview()">
+  </div>
+
+  <div id="preview">نص النيون هنا</div>
+
+  <link href="https://fonts.googleapis.com/css2?family=Cairo&family=Pacifico&family=Raleway+Dots&display=swap" rel="stylesheet">
+  <link href="https://fonts.cdnfonts.com/css/neon-tubes-2" rel="stylesheet">
+
+  <script>
+    function updatePreview() {
+      const text = document.getElementById('textInput').value;
+      const font = document.getElementById('fontSelect').value;
+      const color = document.getElementById('colorPicker').value;
+      const preview = document.getElementById('preview');
+
+      preview.style.fontFamily = font;
+      preview.style.color = color;
+      preview.style.textShadow = `0 0 5px ${color}, 0 0 10px ${color}, 0 0 20px ${color}, 0 0 40px ${color}`;
+      preview.textContent = text || 'نص النيون هنا';
+    }
+    updatePreview();
+  </script>
+</body>
+</html>
