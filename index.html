@@ -1,11 +1,10 @@
 <!DOCTYPE html>
 <html lang="ar" dir="rtl">
 <head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>صمّم لوحتك النيون</title>
-  <!-- خطوط إنجليزية وعربية -->
-  <link href="https://fonts.googleapis.com/css2?family=Pacifico&family=Roboto&family=Lobster&family=Anton&family=Orbitron&family=Montserrat&family=Caveat&family=Oswald&family=Great+Vibes&family=Indie+Flower&family=Amiri&family=Scheherazade&family=Lalezar&display=swap" rel="stylesheet">
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Castle Light - صمّم لوحتك النيون</title>
+  <link href="https://fonts.googleapis.com/css2?family=Pacifico&family=Roboto&family=Lobster&family=Anton&family=Orbitron&family=Montserrat&family=Caveat&family=Oswald&family=Great+Vibes&family=Indie+Flower&family=Amiri&family=Scheherazade&family=Lalezar&display=swap" rel="stylesheet"/>
   <style>
     body {
       background-color: #000;
@@ -15,9 +14,10 @@
       padding: 2rem;
     }
     h1 {
-      font-size: 3rem;
-      margin-bottom: 1rem;
-      text-shadow: 0 0 10px #00ffcc, 0 0 20px #00ffcc;
+      font-size: 3.5rem;
+      margin-bottom: 1.5rem;
+      color: #fff;
+      text-shadow: 0 0 10px #0ff, 0 0 20px #0ff, 0 0 40px #0ff;
     }
     h2 {
       font-size: 2rem;
@@ -60,11 +60,14 @@
       border-radius: 10px;
       cursor: pointer;
     }
-    img {
+    .line-image {
       margin-top: 20px;
-      width: 200px;
+    }
+    .line-image img {
+      width: 220px;
       border-radius: 10px;
       border: 2px solid #fff;
+      box-shadow: 0 0 15px #0f0;
     }
     .gallery {
       display: flex;
@@ -93,47 +96,43 @@
 
   <h2>صمّم لوحتك النيون</h2>
 
-  <input type="text" id="textInput" placeholder="أدخل نص اللوحة" oninput="updatePreview()">
+  <input type="text" id="textInput" placeholder="أدخل نص اللوحة" oninput="updatePreview()" />
 
   <div>
     <label>اختر الخط:</label>
     <select id="fontSelect" onchange="updatePreview()">
       <option value="Pacifico">Pacifico</option>
-      <option value="Roboto">Roboto</option>
       <option value="Lobster">Lobster</option>
       <option value="Anton">Anton</option>
       <option value="Orbitron">Orbitron</option>
-      <option value="Montserrat">Montserrat</option>
-      <option value="Caveat">Caveat</option>
-      <option value="Oswald">Oswald</option>
       <option value="Great Vibes">Great Vibes</option>
       <option value="Indie Flower">Indie Flower</option>
-      <option value="Amiri">أميري (مشبك)</option>
-      <option value="Scheherazade">شهرزاد (مشبك)</option>
+      <option value="Amiri">أميري (عربي مشبك)</option>
+      <option value="Scheherazade">شهرزاد (عربي مشبك)</option>
       <option value="Lalezar">لاليزار (نيون)</option>
     </select>
   </div>
 
   <div class="color-picker">
-    <label>اختر اللون:</label><br>
+    <label>اختر اللون:</label><br />
     <div id="colorOptions"></div>
   </div>
 
   <button class="whatsapp-button" onclick="sendToWhatsApp()">اطلب عبر واتساب</button>
 
-  <div>
+  <div class="line-image">
     <h2>الخط المعتمد</h2>
-    <img src="خط-معتمد.jpg" alt="الخط المعتمد">
+    <img src="line-example.jpg" alt="الخط المعتمد" />
   </div>
 
   <div>
-    <h2>نماذج من أعمالنا</h2>
+    <h2>أمثلة من أعمالنا</h2>
     <div class="gallery">
-      <img src="gallery1.jpg" alt="لوحة نيون 1">
-      <img src="gallery2.jpg" alt="لوحة نيون 2">
-      <img src="gallery3.jpg" alt="لوحة نيون 3">
-      <img src="gallery4.jpg" alt="لوحة نيون 4">
-      <img src="gallery5.jpg" alt="لوحة نيون 5">
+      <img src="gallery1.jpg" alt="لوحة نيون 1" />
+      <img src="gallery2.jpg" alt="لوحة نيون 2" />
+      <img src="gallery3.jpg" alt="لوحة نيون 3" />
+      <img src="gallery4.jpg" alt="لوحة نيون 4" />
+      <img src="gallery5.jpg" alt="لوحة نيون 5" />
     </div>
   </div>
 
@@ -169,7 +168,7 @@
       const text = textInput.value;
       const font = fontSelect.value;
       const color = preview.style.color;
-      const message = `أرغب بطلب لوحة نيون مكتوب عليها: ${text}%0Aالخط: ${font}%0Aاللون: ${color}`;
+      const message = `أرغب بطلب لوحة نيون مكتوب عليها: ${text}%0Aالخط: ${font}%0Aاللون: ${color}%0Aالخط المعتمد: https://onajjarko.github.io/Castle-light/line-example.jpg`;
       const phone = "0795892011";
       window.open(`https://wa.me/962${phone.slice(1)}?text=${message}`, '_blank');
     }
