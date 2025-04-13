@@ -1,178 +1,119 @@
-<!DOCTYPE html>
-<html lang="ar" dir="rtl">
+<!DOCTYPE html><html lang="en">
 <head>
   <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
-  <title>Castle Light - صمّم لوحتك النيون</title>
-  <link href="https://fonts.googleapis.com/css2?family=Pacifico&family=Roboto&family=Lobster&family=Anton&family=Orbitron&family=Montserrat&family=Caveat&family=Oswald&family=Great+Vibes&family=Indie+Flower&family=Amiri&family=Scheherazade&family=Lalezar&display=swap" rel="stylesheet"/>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Custom Neon Sign Outdoor</title>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600&family=Pacifico&family=Satisfy&family=Yellowtail&family=Lobster&display=swap" rel="stylesheet">
   <style>
     body {
-      background-color: #000;
-      color: #0f0;
-      font-family: 'Tajawal', sans-serif;
-      text-align: center;
-      padding: 2rem;
+      margin: 0;
+      font-family: 'Inter', sans-serif;
+      background-color: #ffffff;
+      color: #111;
+    }
+    .container {
+      max-width: 1200px;
+      margin: auto;
+      padding: 1rem;
+    }
+    .product-gallery {
+      display: flex;
+      gap: 1rem;
+      flex-wrap: wrap;
+    }
+    .product-gallery img {
+      width: 100%;
+      max-width: 500px;
+      border-radius: 12px;
+      box-shadow: 0 4px 10px rgba(0,0,0,0.1);
+    }
+    .product-info {
+      flex: 1;
+      padding: 1rem;
     }
     h1 {
-      font-size: 3.5rem;
-      margin-bottom: 1.5rem;
-      color: #fff;
-      text-shadow: 0 0 10px #0ff, 0 0 20px #0ff, 0 0 40px #0ff;
-    }
-    h2 {
       font-size: 2rem;
-      color: #ff00ff;
-      margin: 2rem 0 1rem;
-      text-shadow: 0 0 10px #ff00ff, 0 0 20px #ff00ff;
+      margin-bottom: 0.5rem;
+      font-family: 'Lobster', cursive;
     }
-    .preview {
-      margin-bottom: 2rem;
-      padding: 1rem;
-      font-size: 3rem;
-      border: 2px dashed #555;
-      min-height: 100px;
-      text-shadow: 0 0 10px #ff00ff, 0 0 20px #ff00ff;
+    .price {
+      color: #ff4081;
+      font-size: 1.5rem;
+      margin-bottom: 1rem;
+      font-family: 'Pacifico', cursive;
     }
-    input, select {
+    .options {
+      margin-top: 1rem;
+    }
+    .options label {
+      display: block;
+      margin: 0.5rem 0 0.2rem;
+      font-weight: 600;
+      font-family: 'Satisfy', cursive;
+    }
+    .options input,
+    .options select,
+    .options textarea {
+      width: 100%;
       padding: 0.5rem;
-      margin: 0.5rem;
-      font-size: 1rem;
+      margin-bottom: 1rem;
+      border-radius: 8px;
+      border: 1px solid #ccc;
+      font-family: 'Inter', sans-serif;
     }
-    .color-picker {
-      margin: 1rem 0;
-    }
-    .color-option {
-      display: inline-block;
-      width: 30px;
-      height: 30px;
-      border-radius: 50%;
-      margin: 5px;
-      border: 2px solid white;
-      cursor: pointer;
-    }
-    .whatsapp-button {
-      background-color: #25d366;
+    button {
+      background-color: #000;
       color: white;
-      padding: 0.75rem 1.5rem;
+      padding: 0.75rem 2rem;
       border: none;
-      font-size: 1.2rem;
-      margin-top: 2rem;
-      border-radius: 10px;
+      border-radius: 8px;
       cursor: pointer;
+      font-size: 1rem;
+      font-family: 'Yellowtail', cursive;
     }
-    .line-image {
-      margin-top: 20px;
-    }
-    .line-image img {
-      width: 220px;
-      border-radius: 10px;
-      border: 2px solid #fff;
-      box-shadow: 0 0 15px #0f0;
-    }
-    .gallery {
-      display: flex;
-      flex-wrap: wrap;
-      justify-content: center;
-      gap: 15px;
-      margin-top: 2rem;
-    }
-    .gallery img {
-      width: 180px;
-      height: auto;
-      border-radius: 12px;
-      box-shadow: 0 0 15px #0f0;
-      transition: transform 0.3s ease;
-    }
-    .gallery img:hover {
-      transform: scale(1.05);
+    button:hover {
+      background-color: #222;
     }
   </style>
 </head>
 <body>
+  <div class="container">
+    <div class="product-gallery">
+      <img src="your-image-path-1.jpg" alt="Custom Neon Sign" />
+      <img src="your-image-path-2.jpg" alt="Custom Neon Light" />
+    </div>
+    <div class="product-info">
+      <h1>Custom Neon Sign - Outdoor LED Name Light</h1>
+      <p class="price">Starting from $89.99</p><div class="options">
+    <label for="text">Enter Your Text</label>
+    <textarea id="text" rows="2" placeholder="Your name or phrase"></textarea>
 
-  <h1>Castle Light</h1>
-
-  <div class="preview" id="preview">معاينة النص</div>
-
-  <h2>صمّم لوحتك النيون</h2>
-
-  <input type="text" id="textInput" placeholder="أدخل نص اللوحة" oninput="updatePreview()" />
-
-  <div>
-    <label>اختر الخط:</label>
-    <select id="fontSelect" onchange="updatePreview()">
-      <option value="Pacifico">Pacifico</option>
-      <option value="Lobster">Lobster</option>
-      <option value="Anton">Anton</option>
-      <option value="Orbitron">Orbitron</option>
-      <option value="Great Vibes">Great Vibes</option>
-      <option value="Indie Flower">Indie Flower</option>
-      <option value="Amiri">أميري (عربي مشبك)</option>
-      <option value="Scheherazade">شهرزاد (عربي مشبك)</option>
-      <option value="Lalezar">لاليزار (نيون)</option>
+    <label for="font">Choose Font</label>
+    <select id="font">
+      <option>Font 1</option>
+      <option>Font 2</option>
+      <option>Font 3</option>
     </select>
+
+    <label for="color">Choose Color</label>
+    <select id="color">
+      <option>White</option>
+      <option>Pink</option>
+      <option>Blue</option>
+      <option>Red</option>
+    </select>
+
+    <label for="size">Choose Size</label>
+    <select id="size">
+      <option>Small</option>
+      <option>Medium</option>
+      <option>Large</option>
+    </select>
+
+    <button type="button">Request Quote</button>
   </div>
-
-  <div class="color-picker">
-    <label>اختر اللون:</label><br />
-    <div id="colorOptions"></div>
-  </div>
-
-  <button class="whatsapp-button" onclick="sendToWhatsApp()">اطلب عبر واتساب</button>
-
-  <div class="line-image">
-    <h2>الخط المعتمد</h2>
-    <img src="line-example.jpg" alt="الخط المعتمد" />
-  </div>
-
-  <div>
- <h2>أمثلة من أعمالنا</h2>
-<div class="gallery">
-  <img src="images/neon_sample_1.jpg" alt="لوحة نيون 1" class="sample" />
-  <img src="images/neon_sample_2.jpg" alt="لوحة نيون 2" class="sample" />
 </div>
+
   </div>
-
-  <script>
-    const preview = document.getElementById("preview");
-    const textInput = document.getElementById("textInput");
-    const fontSelect = document.getElementById("fontSelect");
-    const colorOptions = document.getElementById("colorOptions");
-
-    const colors = ["#ff0000", "#00ff00", "#0000ff", "#ffff00", "#ff00ff", "#00ffff", "#ffffff",
-      "#ffa500", "#800080", "#00ff99", "#ff69b4", "#8a2be2", "#00ced1", "#ff4500", "#add8e6",
-      "#90ee90", "#f08080", "#9932cc", "#ff6347", "#20b2aa"];
-
-    colors.forEach(color => {
-      const dot = document.createElement("span");
-      dot.className = "color-option";
-      dot.style.backgroundColor = color;
-      dot.onclick = () => selectColor(color);
-      colorOptions.appendChild(dot);
-    });
-
-    function updatePreview() {
-      preview.textContent = textInput.value;
-      preview.style.fontFamily = fontSelect.value;
-    }
-
-    function selectColor(color) {
-      preview.style.color = color;
-      preview.style.textShadow = `0 0 10px ${color}, 0 0 20px ${color}`;
-    }
-
-    function sendToWhatsApp() {
-      const text = textInput.value;
-      const font = fontSelect.value;
-      const color = preview.style.color;
-      const message = `أرغب بطلب لوحة نيون مكتوب عليها: ${text}%0Aالخط: ${font}%0Aاللون: ${color}%0Aالخط المعتمد: https://onajjarko.github.io/Castle-light/line-example.jpg`;
-      const phone = "0795892011";
-      window.open(`https://wa.me/962${phone.slice(1)}?text=${message}`, '_blank');
-    }
-
-    updatePreview();
-    selectColor(colors[0]);
-  </script>
-
 </body>
 </html>
