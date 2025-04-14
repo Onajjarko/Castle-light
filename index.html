@@ -1,57 +1,60 @@
 <!DOCTYPE html>
 <html lang="ar" dir="rtl">
 <head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
   <title>Castle Light Neon</title>
   <style>
     body {
-      margin: 0;
-      font-family: 'Tajawal', sans-serif;
-      background-color: #0a0a0a;
+      background: #000;
       color: #fff;
-      direction: rtl;
+      font-family: 'Tajawal', sans-serif;
+      text-align: center;
+      margin: 0;
     }
     header {
+      padding: 40px 20px;
       background-color: #111;
-      padding: 20px;
-      text-align: center;
-      border-bottom: 2px solid #ff00cc;
+      border-bottom: 2px solid #f0a;
     }
-    header h1 {
-      color: #ff00cc;
+    h1 {
       font-size: 2.5em;
-      margin: 0;
+      color: #f0a;
+      text-shadow: 0 0 10px #f0a, 0 0 20px #f0a;
     }
     section {
       padding: 40px 20px;
-      max-width: 1000px;
-      margin: auto;
     }
     h2 {
-      color: #00ffff;
+      color: #0ff;
       margin-bottom: 20px;
     }
-    p {
-      line-height: 1.8;
-      font-size: 1.1em;
+    .customizer input, .customizer select {
+      margin: 10px;
+      padding: 10px;
+      font-size: 16px;
+    }
+    .preview {
+      margin-top: 30px;
+      font-size: 40px;
+      font-weight: bold;
+      text-shadow: 0 0 10px #fff, 0 0 20px #fff;
     }
     .gallery {
       display: grid;
-      grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
-      gap: 20px;
+      grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+      gap: 15px;
       margin-top: 20px;
     }
     .gallery img {
       width: 100%;
-      border: 2px solid #ff00cc;
+      border: 2px solid #f0a;
       border-radius: 8px;
     }
     footer {
-      background-color: #111;
       padding: 20px;
-      text-align: center;
-      border-top: 2px solid #00ffff;
+      background-color: #111;
+      border-top: 2px solid #0ff;
     }
   </style>
 </head>
@@ -59,47 +62,69 @@
 
 <header>
   <h1>Castle Light Neon</h1>
+  <p>مختصون بتصميم وتنقيذ جميع أشكال النيون ساين بدقة عالية</p>
 </header>
 
 <section>
-  <h2>من نحن</h2>
-  <p>
-    متخصصون في تصميم وتنفيذ جميع أشكال النيون ساين بدقة عالية وجودة استثنائية. نقدم لك تصاميم فريدة تناسب جميع الأذواق والمجالات.
-  </p>
+  <h2>صمّم لوحتك الآن</h2>
+  <div class="customizer">
+    <input type="text" id="neonText" placeholder="اكتب نص النيون هنا">
+    <select id="fontSelect">
+      <option value="Arial">Arial</option>
+      <option value="Courier New">Courier New</option>
+      <option value="Pacifico">Pacifico</option>
+      <option value="Cursive">Cursive</option>
+    </select>
+    <select id="colorSelect">
+      <option value="#f0a">وردي</option>
+      <option value="#0ff">سماوي</option>
+      <option value="#0f0">أخضر</option>
+      <option value="#ff0">أصفر</option>
+      <option value="#f00">أحمر</option>
+    </select>
+  </div>
+  <div class="preview" id="previewText">جرب تصميمك هنا</div>
 </section>
 
 <section>
-  <h2>أعمالنا</h2>
+  <h2>نماذج من أعمالنا</h2>
   <div class="gallery">
-    <img src="IMAGE_URL_1" alt="نيون قهوة">
-    <img src="IMAGE_URL_2" alt="لاعب كرة">
-    <img src="IMAGE_URL_3" alt="شيشة نيون">
-    <img src="IMAGE_URL_4" alt="يد تحكم ألعاب">
+    <img src="IMAGE_URL_1" alt="نيون 1">
+    <img src="IMAGE_URL_2" alt="نيون 2">
+    <img src="IMAGE_URL_3" alt="نيون 3">
+    <img src="IMAGE_URL_4" alt="نيون 4">
   </div>
 </section>
 
 <section>
-  <h2>خدماتنا</h2>
-  <p>
-    - تصميم نيون حسب الطلب  
-    - تنفيذ وتوريد لجميع مدن المملكة  
-    - تركيبات داخلية وخارجية  
-    - خطوط وأشكال ورسومات إبداعية  
-  </p>
-</section>
-
-<section>
   <h2>تواصل معنا</h2>
-  <p>
-    واتساب: 0500000000  
-    إنستغرام: @castlelight_neon  
-    البريد الإلكتروني: info@castlelight.com
-  </p>
+  <p>واتساب: 0500000000 | إنستغرام: @castlelight_neon</p>
 </section>
 
 <footer>
   &copy; 2025 Castle Light Neon. جميع الحقوق محفوظة.
 </footer>
+
+<script>
+  const neonText = document.getElementById('neonText');
+  const fontSelect = document.getElementById('fontSelect');
+  const colorSelect = document.getElementById('colorSelect');
+  const preview = document.getElementById('previewText');
+
+  function updatePreview() {
+    const text = neonText.value || 'جرب تصميمك هنا';
+    const font = fontSelect.value;
+    const color = colorSelect.value;
+    preview.textContent = text;
+    preview.style.fontFamily = font;
+    preview.style.color = color;
+    preview.style.textShadow = `0 0 10px ${color}, 0 0 20px ${color}, 0 0 30px ${color}`;
+  }
+
+  neonText.addEventListener('input', updatePreview);
+  fontSelect.addEventListener('change', updatePreview);
+  colorSelect.addEventListener('change', updatePreview);
+</script>
 
 </body>
 </html>
