@@ -1,119 +1,75 @@
-<!DOCTYPE html><html lang="en">
+<!DOCTYPE html>
+<html lang="ar" dir="rtl">
 <head>
   <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Custom Neon Sign Outdoor</title>
-  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600&family=Pacifico&family=Satisfy&family=Yellowtail&family=Lobster&display=swap" rel="stylesheet">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Castle Light Neon</title>
   <style>
     body {
-      margin: 0;
-      font-family: 'Inter', sans-serif;
-      background-color: #ffffff;
-      color: #111;
-    }
-    .container {
-      max-width: 1200px;
-      margin: auto;
-      padding: 1rem;
-    }
-    .product-gallery {
-      display: flex;
-      gap: 1rem;
-      flex-wrap: wrap;
-    }
-    .product-gallery img {
-      width: 100%;
-      max-width: 500px;
-      border-radius: 12px;
-      box-shadow: 0 4px 10px rgba(0,0,0,0.1);
-    }
-    .product-info {
-      flex: 1;
-      padding: 1rem;
+      background: #000;
+      color: #fff;
+      font-family: Arial, sans-serif;
+      text-align: center;
+      padding: 30px;
     }
     h1 {
-      font-size: 2rem;
-      margin-bottom: 0.5rem;
-      font-family: 'Lobster', cursive;
+      color: #f0a;
+      text-shadow: 0 0 10px #f0a, 0 0 20px #f0a;
     }
-    .price {
-      color: #ff4081;
-      font-size: 1.5rem;
-      margin-bottom: 1rem;
-      font-family: 'Pacifico', cursive;
-    }
-    .options {
-      margin-top: 1rem;
-    }
-    .options label {
+    label, select, input {
       display: block;
-      margin: 0.5rem 0 0.2rem;
-      font-weight: 600;
-      font-family: 'Satisfy', cursive;
+      margin: 10px auto;
+      font-size: 18px;
     }
-    .options input,
-    .options select,
-    .options textarea {
-      width: 100%;
-      padding: 0.5rem;
-      margin-bottom: 1rem;
-      border-radius: 8px;
-      border: 1px solid #ccc;
-      font-family: 'Inter', sans-serif;
-    }
-    button {
-      background-color: #000;
-      color: white;
-      padding: 0.75rem 2rem;
-      border: none;
-      border-radius: 8px;
-      cursor: pointer;
-      font-size: 1rem;
-      font-family: 'Yellowtail', cursive;
-    }
-    button:hover {
-      background-color: #222;
+    .preview {
+      margin-top: 30px;
+      font-size: 40px;
+      text-shadow: 0 0 10px #fff, 0 0 20px #fff;
     }
   </style>
 </head>
 <body>
-  <div class="container">
-    <div class="product-gallery">
-      <img src="your-image-path-1.jpg" alt="Custom Neon Sign" />
-      <img src="your-image-path-2.jpg" alt="Custom Neon Light" />
-    </div>
-    <div class="product-info">
-      <h1>Custom Neon Sign - Outdoor LED Name Light</h1>
-      <p class="price">Starting from $89.99</p><div class="options">
-    <label for="text">Enter Your Text</label>
-    <textarea id="text" rows="2" placeholder="Your name or phrase"></textarea>
+  <h1>Castle Light Neon</h1>
+  <p>صمّم لوحتك النيون واختبر شكلها قبل التنفيذ</p>
 
-    <label for="font">Choose Font</label>
-    <select id="font">
-      <option>Font 1</option>
-      <option>Font 2</option>
-      <option>Font 3</option>
-    </select>
+  <label for="neonText">النص:</label>
+  <input type="text" id="neonText" placeholder="اكتب اسمك أو العبارة">
 
-    <label for="color">Choose Color</label>
-    <select id="color">
-      <option>White</option>
-      <option>Pink</option>
-      <option>Blue</option>
-      <option>Red</option>
-    </select>
+  <label for="fontSelect">الخط:</label>
+  <select id="fontSelect">
+    <option value="Arial">Arial</option>
+    <option value="Courier New">Courier New</option>
+    <option value="Lucida Console">Lucida Console</option>
+    <option value="Pacifico">Pacifico</option>
+  </select>
 
-    <label for="size">Choose Size</label>
-    <select id="size">
-      <option>Small</option>
-      <option>Medium</option>
-      <option>Large</option>
-    </select>
+  <label for="colorSelect">اللون:</label>
+  <select id="colorSelect">
+    <option value="#f0a">وردي</option>
+    <option value="#0ff">أزرق سماوي</option>
+    <option value="#0f0">أخضر</option>
+    <option value="#ff0">أصفر</option>
+  </select>
 
-    <button type="button">Request Quote</button>
-  </div>
-</div>
+  <div class="preview" id="previewText">جرب التصميم هنا</div>
 
-  </div>
+  <script>
+    const neonText = document.getElementById('neonText');
+    const fontSelect = document.getElementById('fontSelect');
+    const colorSelect = document.getElementById('colorSelect');
+    const preview = document.getElementById('previewText');
+
+    function updatePreview() {
+      preview.textContent = neonText.value || 'جرب التصميم هنا';
+      preview.style.fontFamily = fontSelect.value;
+      const color = colorSelect.value;
+      preview.style.color = color;
+      preview.style.textShadow = `0 0 10px ${color}, 0 0 20px ${color}, 0 0 30px ${color}`;
+    }
+
+    neonText.addEventListener('input', updatePreview);
+    fontSelect.addEventListener('change', updatePreview);
+    colorSelect.addEventListener('change', updatePreview);
+  </script>
 </body>
 </html>
