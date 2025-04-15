@@ -5,7 +5,12 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
   <title>صمّم لوحتك - Neon Custom</title>
   <script src="https://cdn.tailwindcss.com"></script>
+
+  <!-- تحميل خطوط نيون -->
+  <link href="https://fonts.googleapis.com/css2?family=Monoton&family=Press+Start+2P&family=Neon+Tubes&display=swap" rel="stylesheet">
   <style>
+    @import url('https://fonts.googleapis.com/css2?family=Monoton&family=Press+Start+2P&family=Neon+Tubes&display=swap');
+
     .neon-preview {
       font-size: 48px;
       font-weight: bold;
@@ -19,6 +24,10 @@
       background-position: center;
       border: 3px solid rgba(255,255,255,0.1);
     }
+
+    .font-monoton { font-family: 'Monoton', cursive; }
+    .font-press { font-family: 'Press Start 2P', cursive; font-size: 32px; }
+    .font-neontubes { font-family: 'Neon Tubes', cursive; }
   </style>
 </head>
 <body class="bg-gray-900 text-white font-sans">
@@ -45,12 +54,11 @@
       </label>
 
       <label>
-        <span>الخط</span>
+        <span>خط النيون</span>
         <select id="neonFont" class="w-full p-2 rounded bg-gray-800 border border-gray-700">
-          <option value="Arial">Arial</option>
-          <option value="Cursive">Cursive</option>
-          <option value="Tahoma">Tahoma</option>
-          <option value="Georgia">Georgia</option>
+          <option value="font-neontubes">Neon Tubes</option>
+          <option value="font-monoton">Monoton</option>
+          <option value="font-press">Press Start 2P</option>
         </select>
       </label>
 
@@ -91,7 +99,7 @@
       </button>
 
       <div id="acrylicBox" class="inline-block p-6 rounded-lg bg-white/5 backdrop-blur-md border border-white/10 shadow-xl relative transition-all duration-500">
-        <div id="preview" class="neon-preview text-orange-400" style="font-family: Arial;">
+        <div id="preview" class="neon-preview text-orange-400 font-neontubes">
           اكتب نصك هنا
         </div>
         <div id="glowEffect" class="absolute inset-0 rounded-lg pointer-events-none z-[-1]" style="box-shadow: 0 0 30px 10px rgba(255,95,31,0.5);"></div>
@@ -103,14 +111,14 @@
     function updatePreview() {
       const text = document.getElementById("neonText").value || "اكتب نصك هنا";
       const color = document.getElementById("neonColor").value;
-      const font = document.getElementById("neonFont").value;
+      const fontClass = document.getElementById("neonFont").value;
 
       const preview = document.getElementById("preview");
       const glow = document.getElementById("glowEffect");
 
       preview.textContent = text;
       preview.style.color = color;
-      preview.style.fontFamily = font;
+      preview.className = `neon-preview ${fontClass}`;
       glow.style.boxShadow = `0 0 30px 10px ${color}80`;
     }
 
