@@ -18,11 +18,19 @@
     }
 
     .neon-text {
-      font-size: 48px;
-      margin: 20px 0;
+      font-size: 64px;
+      font-weight: bold;
+      margin: 30px 0;
       color: #ff00ff;
-      text-shadow: 0 0 5px #ff00ff, 0 0 10px #ff00ff, 0 0 20px #ff00ff;
       font-family: cursive;
+      text-shadow:
+        0 0 5px #ff00ff,
+        0 0 10px #ff00ff,
+        0 0 20px #ff00ff,
+        0 0 40px #ff00ff,
+        0 0 60px #ff00ff,
+        0 0 80px #ff00ff;
+      transition: all 0.3s ease-in-out;
     }
 
     .form-section {
@@ -34,7 +42,8 @@
       margin: 0 auto;
     }
 
-    .form-section input, .form-section select {
+    .form-section input,
+    .form-section select {
       padding: 10px;
       width: 100%;
       margin-top: 10px;
@@ -88,6 +97,10 @@
       <option value="sans-serif">Sans-serif</option>
       <option value="serif">Serif</option>
     </select>
+
+    <h2>3. PICK COLOR</h2>
+    <p>Choose your neon sign color.</p>
+    <input type="color" id="colorPicker" value="#ff00ff" />
   </div>
 
   <div class="cookie-banner">
@@ -99,10 +112,21 @@
   </div>
 
   <script>
-    // Text input + font changer
     const neonText = document.getElementById('neonText');
     const textInput = document.getElementById('textInput');
     const fontSelect = document.getElementById('fontSelect');
+    const colorPicker = document.getElementById('colorPicker');
+
+    function updateNeonColor(color) {
+      neonText.style.color = color;
+      neonText.style.textShadow =
+        `0 0 5px ${color},
+         0 0 10px ${color},
+         0 0 20px ${color},
+         0 0 40px ${color},
+         0 0 60px ${color},
+         0 0 80px ${color}`;
+    }
 
     textInput.addEventListener('input', () => {
       neonText.textContent = textInput.value;
@@ -111,6 +135,13 @@
     fontSelect.addEventListener('change', () => {
       neonText.style.fontFamily = fontSelect.value;
     });
+
+    colorPicker.addEventListener('input', () => {
+      updateNeonColor(colorPicker.value);
+    });
+
+    // Set initial neon color
+    updateNeonColor(colorPicker.value);
 
     // Cookie banner logic
     const cookieBanner = document.querySelector('.cookie-banner');
@@ -122,30 +153,11 @@
     });
 
     window.addEventListener('load', () => {
-      if (localStorage.getItem('cookiesAccepted') === 'true') {
+      if (localStorage.getItem('cookiesAccepted')) {
         cookieBanner.style.display = 'none';
       }
     });
   </script>
-fontSelect.addEventListener('change', () => {
-      neonText.style.fontFamily = fontSelect.value;
-    });
 
-    // التعامل مع تنبيه الكوكيز
-    const cookieBanner = document.querySelector('.cookie-banner');
-    const cookieBtn = cookieBanner.querySelector('button');
-
-    if (localStorage.getItem('cookieAccepted')) {
-      cookieBanner.style.display = 'none';
-    }
-
-    cookieBtn.addEventListener('click', () => {
-      cookieBanner.style.display = 'none';
-      localStorage.setItem('cookieAccepted', 'true');
-    });
-  </script>
-
-</body>
-</html>
 </body>
 </html>
