@@ -7,6 +7,33 @@
   <link href="https://fonts.googleapis.com/css2?family=Pacifico&display=swap" rel="stylesheet">
   <style>
     body {
+     <script>
+  const inputText = document.querySelector('input[type="text"]');
+  const fontSelect = document.querySelector('select');
+  const colorPicker = document.querySelector('input[type="color"]');
+  const neonPreview = document.querySelector('.neon-text');
+
+  // تحديث النص
+  inputText.addEventListener('input', () => {
+    neonPreview.textContent = inputText.value || "Your Text";
+  });
+
+  // تغيير الخط
+  fontSelect.addEventListener('change', () => {
+    neonPreview.style.fontFamily = fontSelect.value;
+  });
+
+  // تغيير اللون
+  colorPicker.addEventListener('input', () => {
+    const color = colorPicker.value;
+    neonPreview.style.color = color;
+    neonPreview.style.textShadow = `
+      0 0 5px ${color},
+      0 0 10px ${color},
+      0 0 20px ${color},
+      0 0 40px ${color}`;
+  });
+</script>
       margin: 0;
       font-family: Arial, sans-serif;
       background: #111;
