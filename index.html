@@ -10,6 +10,7 @@
       font-size: 48px;
       font-weight: bold;
       text-shadow: 0 0 5px currentColor, 0 0 10px currentColor, 0 0 20px currentColor;
+      transition: all 0.3s ease-in-out;
     }
   </style>
 </head>
@@ -74,10 +75,16 @@
       </button>
     </form>
 
+    <!-- عرض مباشر مع تأثير أكريليك -->
     <div class="mt-10 text-center">
       <h2 class="text-xl mb-2 text-orange-300">عرض مباشر:</h2>
-      <div id="preview" class="neon-preview text-orange-400" style="font-family: Arial;">
-        اكتب نصك هنا
+
+      <div id="acrylicBox" class="inline-block p-6 rounded-lg bg-white/5 backdrop-blur-md border border-white/10 shadow-xl relative">
+        <div id="preview" class="neon-preview text-orange-400" style="font-family: Arial;">
+          اكتب نصك هنا
+        </div>
+        <!-- ظل نيون يتغير -->
+        <div id="glowEffect" class="absolute inset-0 rounded-lg pointer-events-none z-[-1]" style="box-shadow: 0 0 30px 10px rgba(255,95,31,0.5);"></div>
       </div>
     </div>
   </div>
@@ -89,9 +96,12 @@
       const font = document.getElementById("neonFont").value;
 
       const preview = document.getElementById("preview");
+      const glow = document.getElementById("glowEffect");
+
       preview.textContent = text;
       preview.style.color = color;
       preview.style.fontFamily = font;
+      glow.style.boxShadow = `0 0 30px 10px ${color}80`;
     }
   </script>
 
