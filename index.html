@@ -6,11 +6,9 @@
   <title>صمّم لوحتك - Neon Custom</title>
   <script src="https://cdn.tailwindcss.com"></script>
 
-  <!-- تحميل خطوط نيون -->
-  <link href="https://fonts.googleapis.com/css2?family=Monoton&family=Press+Start+2P&family=Neon+Tubes&display=swap" rel="stylesheet">
+  <!-- تحميل خطوط عربية -->
+  <link href="https://fonts.googleapis.com/css2?family=Amiri&family=Cairo:wght@600&family=Changa:wght@600&family=Reem+Kufi&family=Tajawal:wght@700&display=swap" rel="stylesheet">
   <style>
-    @import url('https://fonts.googleapis.com/css2?family=Monoton&family=Press+Start+2P&family=Neon+Tubes&display=swap');
-
     .neon-preview {
       font-size: 48px;
       font-weight: bold;
@@ -25,9 +23,11 @@
       border: 3px solid rgba(255,255,255,0.1);
     }
 
-    .font-monoton { font-family: 'Monoton', cursive; }
-    .font-press { font-family: 'Press Start 2P', cursive; font-size: 32px; }
-    .font-neontubes { font-family: 'Neon Tubes', cursive; }
+    .font-cairo { font-family: 'Cairo', sans-serif; }
+    .font-changa { font-family: 'Changa', sans-serif; }
+    .font-reem { font-family: 'Reem Kufi', sans-serif; }
+    .font-tajawal { font-family: 'Tajawal', sans-serif; }
+    .font-amiri { font-family: 'Amiri', serif; }
   </style>
 </head>
 <body class="bg-gray-900 text-white font-sans">
@@ -54,11 +54,13 @@
       </label>
 
       <label>
-        <span>خط النيون</span>
+        <span>الخط العربي</span>
         <select id="neonFont" class="w-full p-2 rounded bg-gray-800 border border-gray-700">
-          <option value="font-neontubes">Neon Tubes</option>
-          <option value="font-monoton">Monoton</option>
-          <option value="font-press">Press Start 2P</option>
+          <option value="font-cairo">Cairo</option>
+          <option value="font-changa">Changa</option>
+          <option value="font-reem">Reem Kufi</option>
+          <option value="font-tajawal">Tajawal</option>
+          <option value="font-amiri">Amiri</option>
         </select>
       </label>
 
@@ -99,7 +101,7 @@
       </button>
 
       <div id="acrylicBox" class="inline-block p-6 rounded-lg bg-white/5 backdrop-blur-md border border-white/10 shadow-xl relative transition-all duration-500">
-        <div id="preview" class="neon-preview text-orange-400 font-neontubes">
+        <div id="preview" class="neon-preview text-orange-400 font-cairo">
           اكتب نصك هنا
         </div>
         <div id="glowEffect" class="absolute inset-0 rounded-lg pointer-events-none z-[-1]" style="box-shadow: 0 0 30px 10px rgba(255,95,31,0.5);"></div>
