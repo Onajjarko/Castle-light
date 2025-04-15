@@ -3,137 +3,165 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
-  <title>Castle Light</title>
+  <title>Custom Neon</title>
+  <link href="https://fonts.googleapis.com/css2?family=Pacifico&display=swap" rel="stylesheet">
   <style>
     body {
       margin: 0;
+      background-color: #1f1f1f;
       font-family: Arial, sans-serif;
-      background: #2d2d2d;
-      color: white;
+      color: #fff;
+    }
+
+    .top-bar {
       display: flex;
-      flex-direction: column;
+      justify-content: space-between;
       align-items: center;
-    }
-
-    header {
-      text-align: center;
-      padding: 20px;
+      padding: 15px;
       background: white;
-      color: black;
-      width: 100%;
     }
 
-    header h1 {
-      margin: 0;
+    .logo {
       font-weight: bold;
-      color: #3e3eff;
+      color: #223bff;
+      font-size: 24px;
     }
 
-    .neon-preview {
-      margin-top: 40px;
-      font-size: 48px;
-      font-family: 'Pacifico', cursive;
-      color: #ff66cc;
-      text-shadow:
-        0 0 5px #ff66cc,
-        0 0 10px #ff66cc,
-        0 0 20px #ff66cc,
-        0 0 40px #ff66cc;
-    }
-
-    .input-container {
-      background: white;
-      color: black;
-      border-radius: 10px;
-      padding: 20px;
-      width: 90%;
-      max-width: 500px;
-      margin-top: 30px;
-    }
-
-    .input-container h2 {
-      margin-top: 0;
+    .switch-container {
       display: flex;
       align-items: center;
+      font-weight: bold;
     }
 
-    .input-container h2::before {
-      content: '1';
-      background: #3e3eff;
-      color: white;
-      border-radius: 50%;
-      padding: 4px 10px;
+    .switch {
+      width: 50px;
+      height: 30px;
+      background: #333;
+      border-radius: 20px;
+      position: relative;
       margin-right: 10px;
     }
 
-    .input-container input {
+    .switch::before {
+      content: '';
+      position: absolute;
+      top: 3px;
+      left: 3px;
+      width: 24px;
+      height: 24px;
+      background: limegreen;
+      border-radius: 50%;
+      transition: 0.3s;
+    }
+
+    .discount {
+      background: #ff4297;
+      color: white;
+      padding: 5px 10px;
+      font-weight: bold;
+      border-radius: 4px;
+    }
+
+    .hero {
+      background-image: url('https://i.imgur.com/RYFUbGf.jpg');
+      background-size: cover;
+      background-position: center;
+      text-align: center;
+      padding: 100px 20px;
+      position: relative;
+    }
+
+    .hero h1 {
+      font-family: 'Pacifico', cursive;
+      font-size: 60px;
+      color: #ff66cc;
+      text-shadow: 0 0 25px #ff66cc;
+      margin: 0;
+    }
+
+    .section {
+      background: white;
+      border-radius: 20px 20px 0 0;
+      padding: 20px;
+      color: #000;
+    }
+
+    .section h2 {
+      display: flex;
+      align-items: center;
+      font-size: 20px;
+    }
+
+    .section h2::before {
+      content: '1';
+      display: inline-block;
+      background: #4d60fc;
+      color: white;
+      border-radius: 5px;
+      padding: 3px 8px;
+      margin-right: 10px;
+    }
+
+    .section input {
       width: 100%;
-      padding: 12px;
-      margin-top: 10px;
+      padding: 10px;
       font-size: 18px;
+      margin-top: 15px;
       border: 1px solid #ccc;
-      border-radius: 6px;
+      border-radius: 8px;
     }
 
     .cookie-banner {
+      background: white;
+      padding: 15px;
+      font-size: 14px;
+      color: #000;
       position: fixed;
       bottom: 0;
       width: 100%;
-      background: white;
-      color: black;
-      text-align: center;
-      font-size: 14px;
-      padding: 15px;
       box-shadow: 0 -2px 5px rgba(0,0,0,0.2);
     }
 
     .cookie-banner a {
-      color: #3e3eff;
+      color: #000;
       text-decoration: underline;
     }
 
     .cookie-banner button {
       margin-top: 10px;
-      padding: 8px 16px;
-      background: #3e3eff;
-      color: white;
+      background: #4d60fc;
       border: none;
-      border-radius: 6px;
-      cursor: pointer;
+      color: white;
+      padding: 10px 25px;
+      border-radius: 8px;
+      font-weight: bold;
     }
   </style>
-  <link href="https://fonts.googleapis.com/css2?family=Pacifico&display=swap" rel="stylesheet">
 </head>
 <body>
+  <div class="top-bar">
+    <div class="switch-container">
+      <div class="switch"></div>
+      <span>OFF</span>
+    </div>
+    <div class="logo">CUSTOM NEON</div>
+    <div class="discount">FLASHFRENZY</div>
+  </div>
 
-  <header>
-    <h1>CASTLE LIGHT</h1>
-  </header>
+  <div class="hero">
+    <h1>Your Text</h1>
+  </div>
 
-  <div class="neon-preview" id="neonText">Your Text</div>
-
-  <div class="input-container">
+  <div class="section">
     <h2>ENTER YOUR TEXT</h2>
-    <p>Create your own stunning Custom Neon sign in a few simple steps.</p>
-    <input type="text" id="textInput" placeholder="Enter text here..." />
+    <p>Create your own stunning Custom Neon sign in a few simple steps. Scroll down to continue.</p>
+    <input type="text" placeholder="ENTER TEXT HERE">
   </div>
 
-  <div class="cookie-banner" id="cookieBanner">
-    <p>
-      Notice: This site uses cookies to provide necessary website functionality and improve your experience.
-      By using our website, you agree to our <a href="#">Privacy Policy</a>.
-    </p>
-    <button onclick="document.getElementById('cookieBanner').style.display='none'">Ok</button>
+  <div class="cookie-banner">
+    Notice: CustomNeon.com uses cookies to provide necessary website functionality, improve your experience and analyze our traffic. By using our website, you agree to our Privacy Policy and our cookies usage.
+    <a href="#">Privacy Policy</a><br>
+    <button>Ok</button>
   </div>
-
-  <script>
-    const input = document.getElementById("textInput");
-    const preview = document.getElementById("neonText");
-
-    input.addEventListener("input", function () {
-      preview.textContent = input.value || "Your Text";
-    });
-  </script>
-
 </body>
 </html>
