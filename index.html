@@ -1,130 +1,139 @@
 <!DOCTYPE html>
-<html lang="ar" dir="rtl">
+<html lang="en">
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
-  <title>Castle Light Neon</title>
+  <title>Castle Light</title>
   <style>
     body {
-      background: #000;
-      color: #fff;
-      font-family: 'Tajawal', sans-serif;
-      text-align: center;
       margin: 0;
+      font-family: Arial, sans-serif;
+      background: #2d2d2d;
+      color: white;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
     }
+
     header {
-      padding: 40px 20px;
-      background-color: #111;
-      border-bottom: 2px solid #f0a;
-    }
-    h1 {
-      font-size: 2.5em;
-      color: #f0a;
-      text-shadow: 0 0 10px #f0a, 0 0 20px #f0a;
-    }
-    section {
-      padding: 40px 20px;
-    }
-    h2 {
-      color: #0ff;
-      margin-bottom: 20px;
-    }
-    .customizer input, .customizer select {
-      margin: 10px;
-      padding: 10px;
-      font-size: 16px;
-    }
-    .preview {
-      margin-top: 30px;
-      font-size: 40px;
-      font-weight: bold;
-      text-shadow: 0 0 10px #fff, 0 0 20px #fff;
-    }
-    .gallery {
-      display: grid;
-      grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
-      gap: 15px;
-      margin-top: 20px;
-    }
-    .gallery img {
-      width: 100%;
-      border: 2px solid #f0a;
-      border-radius: 8px;
-    }
-    footer {
+      text-align: center;
       padding: 20px;
-      background-color: #111;
-      border-top: 2px solid #0ff;
+      background: white;
+      color: black;
+      width: 100%;
+    }
+
+    header h1 {
+      margin: 0;
+      font-weight: bold;
+      color: #3e3eff;
+    }
+
+    .neon-preview {
+      margin-top: 40px;
+      font-size: 48px;
+      font-family: 'Pacifico', cursive;
+      color: #ff66cc;
+      text-shadow:
+        0 0 5px #ff66cc,
+        0 0 10px #ff66cc,
+        0 0 20px #ff66cc,
+        0 0 40px #ff66cc;
+    }
+
+    .input-container {
+      background: white;
+      color: black;
+      border-radius: 10px;
+      padding: 20px;
+      width: 90%;
+      max-width: 500px;
+      margin-top: 30px;
+    }
+
+    .input-container h2 {
+      margin-top: 0;
+      display: flex;
+      align-items: center;
+    }
+
+    .input-container h2::before {
+      content: '1';
+      background: #3e3eff;
+      color: white;
+      border-radius: 50%;
+      padding: 4px 10px;
+      margin-right: 10px;
+    }
+
+    .input-container input {
+      width: 100%;
+      padding: 12px;
+      margin-top: 10px;
+      font-size: 18px;
+      border: 1px solid #ccc;
+      border-radius: 6px;
+    }
+
+    .cookie-banner {
+      position: fixed;
+      bottom: 0;
+      width: 100%;
+      background: white;
+      color: black;
+      text-align: center;
+      font-size: 14px;
+      padding: 15px;
+      box-shadow: 0 -2px 5px rgba(0,0,0,0.2);
+    }
+
+    .cookie-banner a {
+      color: #3e3eff;
+      text-decoration: underline;
+    }
+
+    .cookie-banner button {
+      margin-top: 10px;
+      padding: 8px 16px;
+      background: #3e3eff;
+      color: white;
+      border: none;
+      border-radius: 6px;
+      cursor: pointer;
     }
   </style>
+  <link href="https://fonts.googleapis.com/css2?family=Pacifico&display=swap" rel="stylesheet">
 </head>
 <body>
 
-<header>
-  <h1>Castle Light Neon</h1>
-  <p>مختصون بتصميم وتنقيذ جميع أشكال النيون ساين بدقة عالية</p>
-</header>
+  <header>
+    <h1>CASTLE LIGHT</h1>
+  </header>
 
-<section>
-  <h2>صمّم لوحتك الآن</h2>
-  <div class="customizer">
-    <input type="text" id="neonText" placeholder="اكتب نص النيون هنا">
-    <select id="fontSelect">
-      <option value="Arial">Arial</option>
-      <option value="Courier New">Courier New</option>
-      <option value="Pacifico">Pacifico</option>
-      <option value="Cursive">Cursive</option>
-    </select>
-    <select id="colorSelect">
-      <option value="#f0a">وردي</option>
-      <option value="#0ff">سماوي</option>
-      <option value="#0f0">أخضر</option>
-      <option value="#ff0">أصفر</option>
-      <option value="#f00">أحمر</option>
-    </select>
+  <div class="neon-preview" id="neonText">Your Text</div>
+
+  <div class="input-container">
+    <h2>ENTER YOUR TEXT</h2>
+    <p>Create your own stunning Custom Neon sign in a few simple steps.</p>
+    <input type="text" id="textInput" placeholder="Enter text here..." />
   </div>
-  <div class="preview" id="previewText">جرب تصميمك هنا</div>
-</section>
 
-<section>
-  <h2>نماذج من أعمالنا</h2>
-  <div class="gallery">
-    <img src="IMAGE_URL_1" alt="نيون 1">
-    <img src="IMAGE_URL_2" alt="نيون 2">
-    <img src="IMAGE_URL_3" alt="نيون 3">
-    <img src="IMAGE_URL_4" alt="نيون 4">
+  <div class="cookie-banner" id="cookieBanner">
+    <p>
+      Notice: This site uses cookies to provide necessary website functionality and improve your experience.
+      By using our website, you agree to our <a href="#">Privacy Policy</a>.
+    </p>
+    <button onclick="document.getElementById('cookieBanner').style.display='none'">Ok</button>
   </div>
-</section>
 
-<section>
-  <h2>تواصل معنا</h2>
-  <p>واتساب: 0500000000 | إنستغرام: @castlelight_neon</p>
-</section>
+  <script>
+    const input = document.getElementById("textInput");
+    const preview = document.getElementById("neonText");
 
-<footer>
-  &copy; 2025 Castle Light Neon. جميع الحقوق محفوظة.
-</footer>
-
-<script>
-  const neonText = document.getElementById('neonText');
-  const fontSelect = document.getElementById('fontSelect');
-  const colorSelect = document.getElementById('colorSelect');
-  const preview = document.getElementById('previewText');
-
-  function updatePreview() {
-    const text = neonText.value || 'جرب تصميمك هنا';
-    const font = fontSelect.value;
-    const color = colorSelect.value;
-    preview.textContent = text;
-    preview.style.fontFamily = font;
-    preview.style.color = color;
-    preview.style.textShadow = `0 0 10px ${color}, 0 0 20px ${color}, 0 0 30px ${color}`;
-  }
-
-  neonText.addEventListener('input', updatePreview);
-  fontSelect.addEventListener('change', updatePreview);
-  colorSelect.addEventListener('change', updatePreview);
-</script>
+    input.addEventListener("input", function () {
+      preview.textContent = input.value || "Your Text";
+    });
+  </script>
 
 </body>
 </html>
