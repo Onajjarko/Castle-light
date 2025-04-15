@@ -158,6 +158,43 @@
       }
     });
   </script>
+<script>
+  const neonText = document.getElementById('neonText');
+  const textInput = document.getElementById('textInput');
+  const fontSelect = document.getElementById('fontSelect');
+  const colorPicker = document.getElementById('colorPicker');
 
+  textInput.addEventListener('input', () => {
+    neonText.textContent = textInput.value;
+  });
+
+  fontSelect.addEventListener('change', () => {
+    neonText.style.fontFamily = fontSelect.value;
+  });
+
+  colorPicker.addEventListener('input', () => {
+    const color = colorPicker.value;
+    neonText.style.color = color;
+    neonText.style.textShadow = `
+      0 0 5px ${color},
+      0 0 10px ${color},
+      0 0 20px ${color},
+      0 0 40px ${color},
+      0 0 60px ${color},
+      0 0 80px ${color}`;
+  });
+
+  // التعامل مع تنبيه الكوكيز
+  const cookieBanner = document.querySelector('.cookie-banner');
+  const cookieBtn = cookieBanner.querySelector('button');
+  if (localStorage.getItem('cookieAccepted')) {
+    cookieBanner.style.display = 'none';
+  }
+
+  cookieBtn.addEventListener('click', () => {
+    localStorage.setItem('cookieAccepted', 'true');
+    cookieBanner.style.display = 'none';
+  });
+</script>
 </body>
 </html>
