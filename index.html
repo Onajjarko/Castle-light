@@ -2,149 +2,127 @@
 <html lang="en">
 <head>
   <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>CASTLE LIGHT</title>
-  <link href="https://fonts.googleapis.com/css2?family=Pacifico&family=Roboto&family=Orbitron&family=Press+Start+2P&family=Lobster&family=Oswald&family=Raleway&family=Anton&family=Bebas+Neue&family=Playfair+Display&family=Quicksand&family=Arvo&family=Fjalla+One&family=Kanit&family=Titillium+Web&family=Indie+Flower&family=Amatic+SC&family=Comfortaa&family=DM+Serif+Display&family=Great+Vibes&family=Josefin+Sans&family=Manrope&family=Merriweather&family=PT+Sans&family=Rubik&family=Satisfy&family=Signika&family=Ubuntu&family=Varela+Round&family=Yanone+Kaffeesatz&display=swap" rel="stylesheet">
-  
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Castle Light</title>
   <style>
-    @font-face {
-      font-family: 'Bouncy';
-      src: url('fonts/Bouncy.otf') format('opentype');
-    }
-
     body {
+      background-color: black;
+      color: white;
       font-family: Arial, sans-serif;
       text-align: center;
-      background-color: #000;
-      color: white;
-      padding: 20px;
+      margin: 0;
+      padding: 0;
     }
-
     h1 {
-      color: #00f;
+      font-size: 2.5rem;
+      margin-top: 20px;
+      color: blue;
     }
-
-    .neon-text {
-      font-family: 'Bouncy', cursive;
-      font-size: 64px;
+    #output {
+      font-size: 4rem;
       font-weight: bold;
       margin: 30px 0;
-      color: #ff00ff;
-      text-shadow:
-        0 0 5px #ff00ff,
-        0 0 10px #ff00ff,
-        0 0 20px #ff00ff,
-        0 0 40px #ff00ff,
-        0 0 60px #ff00ff,
-        0 0 80px #ff00ff;
-      transition: all 0.3s ease-in-out;
+      text-shadow: 0 0 20px red;
     }
-
-    .form-section {
-      background: #fff;
-      color: #000;
-      border-radius: 10px;
-      padding: 20px;
-      max-width: 600px;
-      margin: 0 auto;
-    }
-
-    .form-section input,
-    .form-section select {
-      padding: 10px;
-      width: 100%;
-      margin-top: 10px;
-      margin-bottom: 20px;
-      font-size: 16px;
-    }
-
-    .color-palette {
-      display: flex;
-      flex-wrap: wrap;
-      gap: 10px;
-      justify-content: center;
-    }
-
-    .color-swatch {
-      width: 30px;
-      height: 30px;
-      border-radius: 50%;
-      cursor: pointer;
-      border: 2px solid #000;
-    }
-
-    .cookie-banner {
-      position: fixed;
-      bottom: 0;
-      left: 0;
-      right: 0;
+    .box {
       background: white;
       color: black;
-      padding: 15px;
-      text-align: center;
-      z-index: 9999;
-      font-size: 14px;
+      padding: 30px;
+      margin: 20px auto;
+      width: 80%;
+      max-width: 400px;
+      border-radius: 15px;
     }
-
-    .cookie-banner button {
-      margin-top: 10px;
-      padding: 8px 16px;
-      background-color: #3b49df;
+    input[type="text"] {
+      padding: 10px;
+      width: 90%;
+      font-size: 1.2rem;
+      margin: 10px 0 20px;
+    }
+    .colors {
+      display: flex;
+      justify-content: center;
+      gap: 20px;
+    }
+    .color-btn {
+      width: 50px;
+      height: 50px;
+      border-radius: 50%;
+      border: none;
+      cursor: pointer;
+      box-shadow: 0 0 10px #000;
+    }
+    .red { background-color: red; }
+    .green { background-color: lime; }
+    .blue { background-color: blue; }
+    .cookie {
+      background-color: white;
+      color: black;
+      padding: 15px;
+      position: fixed;
+      bottom: 0;
+      width: 100%;
+    }
+    .cookie a {
+      color: blue;
+    }
+    .cookie button {
+      background-color: blue;
       color: white;
       border: none;
+      padding: 10px 20px;
       border-radius: 5px;
-      cursor: pointer;
-    }
-
-    .cookie-banner a {
-      color: #3b49df;
+      margin-top: 10px;
     }
   </style>
 </head>
 <body>
-
   <h1>CASTLE LIGHT</h1>
-  <div class="neon-text" id="neonText">Osamah</div>
+  <div id="output">OSAMA</div>
 
-  <div class="form-section">
+  <div class="box">
     <h2>1. ENTER YOUR TEXT</h2>
-    <input type="text" id="textInput" value="Osamah" />
-
+    <input type="text" id="nameInput" placeholder="Enter your name" />
+    
     <h2>2. CHOOSE COLOR</h2>
-    <div class="color-palette">
-      <!-- Example Swatches -->
-      <div class="color-swatch" style="background-color: #ff0000;" onclick="changeTextColor('#ff0000')"></div>
-      <div class="color-swatch" style="background-color: #00ff00;" onclick="changeTextColor('#00ff00')"></div>
-      <div class="color-swatch" style="background-color: #0000ff;" onclick="changeTextColor('#0000ff')"></div>
+    <div class="colors">
+      <button class="color-btn red" onclick="changeColor('red')"></button>
+      <button class="color-btn green" onclick="changeColor('lime')"></button>
+      <button class="color-btn blue" onclick="changeColor('blue')"></button>
     </div>
   </div>
 
-  <div class="cookie-banner">
-    We use cookies to ensure you get the best experience. <a href="#">Learn more</a>
-    <br>
-    <button onclick="this.parentElement.style.display='none'">Got it!</button>
+  <div class="cookie">
+    We use cookies to ensure you get the best experience.
+    <a href="#">Learn more</a><br />
+    <button onclick="hideCookie()">Got it!</button>
   </div>
 
   <script>
-    const textInput = document.getElementById("textInput");
-    const neonText = document.getElementById("neonText");
+    const output = document.getElementById('output');
+    const input = document.getElementById('nameInput');
 
-    textInput.addEventListener("input", () => {
-      neonText.textContent = textInput.value;
+    // Load saved data
+    window.onload = function () {
+      const savedName = localStorage.getItem('name');
+      const savedColor = localStorage.getItem('color');
+      if (savedName) output.textContent = savedName;
+      if (savedColor) output.style.textShadow = `0 0 20px ${savedColor}`;
+    };
+
+    input.addEventListener('input', () => {
+      output.textContent = input.value;
+      localStorage.setItem('name', input.value);
     });
 
-    function changeTextColor(color) {
-      neonText.style.color = color;
-      neonText.style.textShadow = `
-        0 0 5px ${color},
-        0 0 10px ${color},
-        0 0 20px ${color},
-        0 0 40px ${color},
-        0 0 60px ${color},
-        0 0 80px ${color}
-      `;
+    function changeColor(color) {
+      output.style.textShadow = `0 0 20px ${color}`;
+      localStorage.setItem('color', color);
+    }
+
+    function hideCookie() {
+      document.querySelector('.cookie').style.display = 'none';
     }
   </script>
-
 </body>
 </html>
