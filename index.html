@@ -2,136 +2,129 @@
 <html lang="ar" dir="rtl">
 <head>
   <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
   <title>Castle Light Neon</title>
   <style>
     body {
-      background-color: #0d0d0d;
+      background: #000;
       color: #fff;
-      font-family: 'Cairo', sans-serif;
+      font-family: 'Tajawal', sans-serif;
       text-align: center;
-      padding: 2rem;
+      margin: 0;
+    }
+    header {
+      padding: 40px 20px;
+      background-color: #111;
+      border-bottom: 2px solid #f0a;
     }
     h1 {
-      font-size: 3rem;
-      margin-bottom: 1rem;
-      text-shadow: 0 0 10px #0ff, 0 0 20px #0ff;
+      font-size: 2.5em;
+      color: #f0a;
+      text-shadow: 0 0 10px #f0a, 0 0 20px #f0a;
     }
-    select {
-      padding: 0.5rem;
-      font-size: 1rem;
-      margin-bottom: 1rem;
+    section {
+      padding: 40px 20px;
     }
-    #previewText {
-      margin-top: 2rem;
-      font-size: 2rem;
-      text-shadow: 0 0 5px #f0f, 0 0 10px #f0f;
+    h2 {
+      color: #0ff;
+      margin-bottom: 20px;
+    }
+    .customizer input, .customizer select {
+      margin: 10px;
+      padding: 10px;
+      font-size: 16px;
+    }
+    .preview {
+      margin-top: 30px;
+      font-size: 40px;
+      font-weight: bold;
+      text-shadow: 0 0 10px #fff, 0 0 20px #fff;
     }
     .gallery {
-      display: flex;
-      flex-wrap: wrap;
-      justify-content: center;
-      gap: 1rem;
-      margin-top: 2rem;
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+      gap: 15px;
+      margin-top: 20px;
     }
     .gallery img {
-      width: 200px;
-      height: auto;
-      border: 2px solid #fff;
-      border-radius: 10px;
+      width: 100%;
+      border: 2px solid #f0a;
+      border-radius: 8px;
     }
-    .contact {
-      margin-top: 3rem;
-      padding: 1rem;
-      background-color: #1a1a1a;
-      border-radius: 10px;
-    }
-    .contact input, .contact textarea {
-      width: 80%;
-      padding: 0.5rem;
-      margin: 0.5rem 0;
-      border: none;
-      border-radius: 5px;
-    }
-    .contact button {
-      padding: 0.5rem 1rem;
-      background-color: #0ff;
-      border: none;
-      border-radius: 5px;
-      cursor: pointer;
+    footer {
+      padding: 20px;
+      background-color: #111;
+      border-top: 2px solid #0ff;
     }
   </style>
 </head>
 <body>
+
+<header>
   <h1>Castle Light Neon</h1>
-  <p>مختصون بتصميم وتنفيذ جميع أشكال النيون ساين بدقة عالية</p>
+  <p>مختصون بتصميم وتنقيذ جميع أشكال النيون ساين بدقة عالية</p>
+</header>
 
-  <label for="fontSelect">اختر الخط:</label>
-  <select id="fontSelect" onchange="loadFont(this.value)">
-    <option value="Neonderthaw">Neonderthaw</option>
-    <option value="Tilt Neon">Tilt Neon</option>
-    <option value="Monoton">Monoton</option>
-    <option value="Audiowide">Audiowide</option>
-    <option value="Orbitron">Orbitron</option>
-    <option value="Press Start 2P">Press Start 2P</option>
-    <option value="Major Mono Display">Major Mono Display</option>
-    <option value="VT323">VT323</option>
-    <option value="Bungee Shade">Bungee Shade</option>
-    <option value="Fredericka the Great">Fredericka the Great</option>
-    <option value="Righteous">Righteous</option>
-    <option value="Satisfy">Satisfy</option>
-    <option value="Pacifico">Pacifico</option>
-    <option value="Lobster">Lobster</option>
-    <option value="Great Vibes">Great Vibes</option>
-    <option value="Dancing Script">Dancing Script</option>
-    <option value="Gloria Hallelujah">Gloria Hallelujah</option>
-    <option value="Shadows Into Light">Shadows Into Light</option>
-    <option value="Rock Salt">Rock Salt</option>
-    <option value="Caveat">Caveat</option>
-    <option value="Amiri">Amiri</option>
-    <option value="Cairo">Cairo</option>
-    <option value="Changa">Changa</option>
-    <option value="El Messiri">El Messiri</option>
-    <option value="Harmattan">Harmattan</option>
-    <option value="Lateef">Lateef</option>
-    <option value="Lalezar">Lalezar</option>
-    <option value="Reem Kufi">Reem Kufi</option>
-    <option value="Scheherazade New">Scheherazade New</option>
-    <option value="Tajawal">Tajawal</option>
-    <option value="Almarai">Almarai</option>
-    <option value="Baloo Bhaijaan 2">Baloo Bhaijaan 2</option>
-    <option value="Markazi Text">Markazi Text</option>
-    <option value="Noto Kufi Arabic">Noto Kufi Arabic</option>
-    <option value="Noto Naskh Arabic">Noto Naskh Arabic</option>
-    <option value="Noto Sans Arabic">Noto Sans Arabic</option>
-    <option value="Rakkas">Rakkas</option>
-    <option value="Aladin">Aladin</option>
-    <option value="Katibeh">Katibeh</option>
-    <option value="Mirza">Mirza</option>
-  </select>
+<section>
+  <h2>صمّم لوحتك الآن</h2>
+  <div class="customizer">
+    <input type="text" id="neonText" placeholder="اكتب نص النيون هنا">
+    <select id="fontSelect">
+      <option value="Arial">Arial</option>
+      <option value="Courier New">Courier New</option>
+      <option value="Pacifico">Pacifico</option>
+      <option value="Cursive">Cursive</option>
+    </select>
+    <select id="colorSelect">
+      <option value="#f0a">وردي</option>
+      <option value="#0ff">سماوي</option>
+      <option value="#0f0">أخضر</option>
+      <option value="#ff0">أصفر</option>
+      <option value="#f00">أحمر</option>
+    </select>
+  </div>
+  <div class="preview" id="previewText">جرب تصميمك هنا</div>
+</section>
 
-  <div id="previewText">نص المعاينة</div>
-
+<section>
+  <h2>نماذج من أعمالنا</h2>
   <div class="gallery">
-    <img src="image1.jpg" alt="نيون 1" />
-    <img src="image2.jpg" alt="نيون 2" />
-    <img src="image3.jpg" alt="نيون 3" />
-    <!-- أضف المزيد من الصور حسب الحاجة -->
+    <img src="IMAGE_URL_1" alt="نيون 1">
+    <img src="IMAGE_URL_2" alt="نيون 2">
+    <img src="IMAGE_URL_3" alt="نيون 3">
+    <img src="IMAGE_URL_4" alt="نيون 4">
   </div>
+</section>
 
-  <div class="contact">
-    <h2>تواصل معنا</h2>
-    <form>
-      <input type="text" placeholder="الاسم" required /><br />
-      <input type="email" placeholder="البريد الإلكتروني" required /><br />
-      <textarea placeholder="رسالتك" rows="4" required></textarea><br />
-      <button type="submit">إرسال</button>
-    </form>
-  </div>
+<section>
+  <h2>تواصل معنا</h2>
+  <p>واتساب: 0500000000 | إنستغرام: @castlelight_neon</p>
+</section>
 
-  <script>
-    function loadFont(fontName) {
-      const linkId = 'dynamic-font';
-      let link = document.getElementById(linkId);
-      if (link) {
-        link.href22
+<footer>
+  &copy; 2025 Castle Light Neon. جميع الحقوق محفوظة.
+</footer>
+
+<script>
+  const neonText = document.getElementById('neonText');
+  const fontSelect = document.getElementById('fontSelect');
+  const colorSelect = document.getElementById('colorSelect');
+  const preview = document.getElementById('previewText');
+
+  function updatePreview() {
+    const text = neonText.value || 'جرب تصميمك هنا';
+    const font = fontSelect.value;
+    const color = colorSelect.value;
+    preview.textContent = text;
+    preview.style.fontFamily = font;
+    preview.style.color = color;
+    preview.style.textShadow = `0 0 10px ${color}, 0 0 20px ${color}, 0 0 30px ${color}`;
+  }
+
+  neonText.addEventListener('input', updatePreview);
+  fontSelect.addEventListener('change', updatePreview);
+  colorSelect.addEventListener('change', updatePreview);
+</script>
+
+</body>
+</html>
