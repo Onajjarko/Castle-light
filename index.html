@@ -3,126 +3,80 @@
 <head>
   <meta charset="UTF-8">
   <title>CASTLE LIGHT</title>
+  <link href="https://fonts.googleapis.com/css2?family=Pacifico&family=Orbitron&family=Press+Start+2P&family=Lobster&family=Oswald&family=Raleway&family=Anton&family=Bebas+Neue&family=Playfair+Display&family=Quicksand&family=Arvo&family=Fjalla+One&family=Kanit&family=Titillium+Web&family=Indie+Flower&family=Amatic+SC&family=Comfortaa&family=DM+Serif+Display&family=Great+Vibes&family=Josefin+Sans&family=Manrope&family=Merriweather&family=PT+Sans&family=Rubik&family=Satisfy&family=Signika&family=Ubuntu&family=Varela+Round&family=Yanone+Kaffeesatz&display=swap" rel="stylesheet">
   <style>
     body {
-      font-family: Arial, sans-serif;
       text-align: center;
+      font-family: Arial, sans-serif;
       padding: 20px;
     }
-    #outputText {
-      margin-top: 40px;
-      font-size: 48px;
+    #output {
+      margin-top: 20px;
+      font-size: 32px;
+      font-weight: bold;
     }
-    .color-palette {
-      display: flex;
-      justify-content: center;
-      flex-wrap: wrap;
-      margin-top: 10px;
-    }
-    .color-option {
-      width: 30px;
-      height: 30px;
+    .color-btn {
+      width: 20px;
+      height: 20px;
+      display: inline-block;
       margin: 5px;
       border-radius: 50%;
       cursor: pointer;
-      border: 2px solid transparent;
-    }
-    .color-option.selected {
-      border-color: #000;
+      border: 1px solid #333;
     }
   </style>
 </head>
 <body>
-
   <h1>CASTLE LIGHT</h1>
   <h2>Osamah</h2>
 
-  <h2>1. ENTER YOUR TEXT</h2>
-  <input type="text" id="textInput" placeholder="Enter your name">
+  <h3>1. ENTER YOUR TEXT</h3>
+  <input type="text" id="nameInput" placeholder="Enter your name" oninput="updateOutput()" />
 
-  <h2>2. CHOOSE FONT</h2>
-  <select id="fontSelect">
-    <option value="cursive">Cursive</option>
-    <option value="Arial">Arial</option>
-    <option value="Verdana">Verdana</option>
-    <option value="Georgia">Georgia</option>
-    <option value="Tahoma">Tahoma</option>
-    <option value="Times New Roman">Times New Roman</option>
-    <option value="Courier New">Courier New</option>
+  <h3>2. CHOOSE FONT</h3>
+  <select id="fontSelect" onchange="updateOutput()">
     <option value="Pacifico">Pacifico</option>
-    <option value="Roboto">Roboto</option>
     <option value="Orbitron">Orbitron</option>
-    <option value="Press Start 2P">Press Start 2P</option>
     <option value="Lobster">Lobster</option>
     <option value="Oswald">Oswald</option>
     <option value="Raleway">Raleway</option>
-    <option value="Anton">Anton</option>
     <option value="Bebas Neue">Bebas Neue</option>
     <option value="Playfair Display">Playfair Display</option>
     <option value="Quicksand">Quicksand</option>
-    <option value="Arvo">Arvo</option>
-    <option value="Fjalla One">Fjalla One</option>
     <option value="Kanit">Kanit</option>
-    <option value="Titillium Web">Titillium Web</option>
-    <option value="Indie Flower">Indie Flower</option>
-    <option value="Amatic SC">Amatic SC</option>
-    <option value="Comfortaa">Comfortaa</option>
-    <option value="DM Serif Display">DM Serif Display</option>
-    <option value="Great Vibes">Great Vibes</option>
-    <option value="Josefin Sans">Josefin Sans</option>
-    <option value="Manrope">Manrope</option>
-    <option value="Merriweather">Merriweather</option>
-    <option value="PT Sans">PT Sans</option>
-    <option value="Rubik">Rubik</option>
-    <option value="Satisfy">Satisfy</option>
-    <option value="Signika">Signika</option>
     <option value="Ubuntu">Ubuntu</option>
-    <option value="Varela Round">Varela Round</option>
-    <option value="Yanone Kaffeesatz">Yanone Kaffeesatz</option>
   </select>
 
-  <h2>3. PICK COLOR</h2>
-  <div class="color-palette" id="colorPalette"></div>
+  <h3>3. PICK COLOR</h3>
+  <div>
+    <div class="color-btn" style="background:black" onclick="changeColor('black')"></div>
+    <div class="color-btn" style="background:red" onclick="changeColor('red')"></div>
+    <div class="color-btn" style="background:green" onclick="changeColor('green')"></div>
+    <div class="color-btn" style="background:blue" onclick="changeColor('blue')"></div>
+    <div class="color-btn" style="background:purple" onclick="changeColor('purple')"></div>
+    <div class="color-btn" style="background:orange" onclick="changeColor('orange')"></div>
+    <div class="color-btn" style="background:aqua" onclick="changeColor('aqua')"></div>
+    <div class="color-btn" style="background:gray" onclick="changeColor('gray')"></div>
+  </div>
 
-  <div id="outputText">CASTLE LIGHT</div>
+  <div id="output">CASTLE LIGHT</div>
 
-  <p style="margin-top: 60px;">
-    Notice: This site uses cookies to improve your experience.<br>
-    By using our website, you agree to our Privacy Policy.
-  </p>
-  <button onclick="alert('Thanks!')">Ok</button>
+  <p>Notice: This site uses cookies to improve your experience.<br>
+    By using our website, you agree to our Privacy Policy.</p>
+  <button onclick="alert('Thanks for accepting cookies!')">Ok</button>
 
   <script>
-    const textInput = document.getElementById('textInput');
-    const outputText = document.getElementById('outputText');
-    const fontSelect = document.getElementById('fontSelect');
-    const colorPalette = document.getElementById('colorPalette');
+    function updateOutput() {
+      const name = document.getElementById("nameInput").value;
+      const font = document.getElementById("fontSelect").value;
+      const output = document.getElementById("output");
+      output.textContent = name || "CASTLE LIGHT";
+      output.style.fontFamily = font;
+    }
 
-    // Live update text
-    textInput.addEventListener('input', function () {
-      outputText.textContent = textInput.value || 'CASTLE LIGHT';
-    });
-
-    // Update font
-    fontSelect.addEventListener('change', function () {
-      outputText.style.fontFamily = fontSelect.value;
-    });
-
-    // Colors to choose from
-    const colors = ['#000', '#ff0000', '#00ff00', '#0000ff', '#ff00ff', '#ffa500', '#00ffff', '#ffffff', '#808080'];
-
-    colors.forEach(color => {
-      const colorOption = document.createElement('div');
-      colorOption.className = 'color-option';
-      colorOption.style.backgroundColor = color;
-      colorOption.addEventListener('click', () => {
-        outputText.style.color = color;
-        document.querySelectorAll('.color-option').forEach(el => el.classList.remove('selected'));
-        colorOption.classList.add('selected');
-      });
-      colorPalette.appendChild(colorOption);
-    });
+    function changeColor(color) {
+      document.getElementById("output").style.color = color;
+    }
   </script>
-
 </body>
 </html>
