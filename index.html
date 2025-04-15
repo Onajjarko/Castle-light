@@ -12,6 +12,13 @@
       text-shadow: 0 0 5px currentColor, 0 0 10px currentColor, 0 0 20px currentColor;
       transition: all 0.3s ease-in-out;
     }
+
+    .room-mode {
+      background-image: url('https://images.unsplash.com/photo-1616627458516-38d5e2fd2ba9?auto=format&fit=crop&w=1200&q=80');
+      background-size: cover;
+      background-position: center;
+      border: 3px solid rgba(255,255,255,0.1);
+    }
   </style>
 </head>
 <body class="bg-gray-900 text-white font-sans">
@@ -75,15 +82,18 @@
       </button>
     </form>
 
-    <!-- عرض مباشر مع تأثير أكريليك -->
+    <!-- عرض مباشر مع زر تبديل الخلفية -->
     <div class="mt-10 text-center">
       <h2 class="text-xl mb-2 text-orange-300">عرض مباشر:</h2>
 
-      <div id="acrylicBox" class="inline-block p-6 rounded-lg bg-white/5 backdrop-blur-md border border-white/10 shadow-xl relative">
+      <button onclick="toggleRoomMode()" class="mb-4 bg-white/10 hover:bg-white/20 px-4 py-2 rounded text-sm text-white">
+        تبديل عرض الغرفة
+      </button>
+
+      <div id="acrylicBox" class="inline-block p-6 rounded-lg bg-white/5 backdrop-blur-md border border-white/10 shadow-xl relative transition-all duration-500">
         <div id="preview" class="neon-preview text-orange-400" style="font-family: Arial;">
           اكتب نصك هنا
         </div>
-        <!-- ظل نيون يتغير -->
         <div id="glowEffect" class="absolute inset-0 rounded-lg pointer-events-none z-[-1]" style="box-shadow: 0 0 30px 10px rgba(255,95,31,0.5);"></div>
       </div>
     </div>
@@ -102,6 +112,11 @@
       preview.style.color = color;
       preview.style.fontFamily = font;
       glow.style.boxShadow = `0 0 30px 10px ${color}80`;
+    }
+
+    function toggleRoomMode() {
+      const box = document.getElementById("acrylicBox");
+      box.classList.toggle("room-mode");
     }
   </script>
 
