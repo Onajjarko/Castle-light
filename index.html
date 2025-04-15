@@ -3,17 +3,25 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
-  <title>صمّم لوحتك - Neon Custom</title>
+  <title>صمّم لوحتك - نيون فليكس LED</title>
   <script src="https://cdn.tailwindcss.com"></script>
 
-  <!-- تحميل خطوط عربية -->
-  <link href="https://fonts.googleapis.com/css2?family=Amiri&family=Cairo:wght@600&family=Changa:wght@600&family=Reem+Kufi&family=Tajawal:wght@700&display=swap" rel="stylesheet">
+  <!-- خطوط عربية -->
+  <link href="https://fonts.googleapis.com/css2?family=Cairo:wght@600&family=Changa:wght@600&family=Reem+Kufi&family=Tajawal:wght@700&display=swap" rel="stylesheet">
   <style>
     .neon-preview {
       font-size: 48px;
       font-weight: bold;
       text-shadow: 0 0 5px currentColor, 0 0 10px currentColor, 0 0 20px currentColor;
       transition: all 0.3s ease-in-out;
+    }
+
+    .neon-off {
+      text-shadow: none !important;
+      color: #dddddd !important;
+      opacity: 1 !important;
+      -webkit-text-stroke: 1.2px #aaa;
+      font-weight: 700;
     }
 
     .room-mode {
@@ -27,13 +35,12 @@
     .font-changa { font-family: 'Changa', sans-serif; }
     .font-reem { font-family: 'Reem Kufi', sans-serif; }
     .font-tajawal { font-family: 'Tajawal', sans-serif; }
-    .font-amiri { font-family: 'Amiri', serif; }
   </style>
 </head>
 <body class="bg-gray-900 text-white font-sans">
 
   <div class="container mx-auto px-4 py-10">
-    <h1 class="text-4xl font-bold text-center mb-10 text-orange-400">صمّم لوحتك النيون</h1>
+    <h1 class="text-4xl font-bold text-center mb-10 text-orange-400">صمّم لوحتك النيون فليكس</h1>
 
     <form class="grid gap-6 max-w-2xl mx-auto" oninput="updatePreview()">
       
@@ -54,31 +61,12 @@
       </label>
 
       <label>
-        <span>الخط العربي</span>
+        <span>الخط</span>
         <select id="neonFont" class="w-full p-2 rounded bg-gray-800 border border-gray-700">
           <option value="font-cairo">Cairo</option>
           <option value="font-changa">Changa</option>
           <option value="font-reem">Reem Kufi</option>
           <option value="font-tajawal">Tajawal</option>
-          <option value="font-amiri">Amiri</option>
-        </select>
-      </label>
-
-      <label>
-        <span>المقاس</span>
-        <select class="w-full p-2 rounded bg-gray-800 border border-gray-700">
-          <option>صغير</option>
-          <option>متوسط</option>
-          <option>كبير</option>
-        </select>
-      </label>
-
-      <label>
-        <span>طريقة التركيب</span>
-        <select class="w-full p-2 rounded bg-gray-800 border border-gray-700">
-          <option>تعليق بالحائط</option>
-          <option>قاعدة أرضية</option>
-          <option>مغناطيس</option>
         </select>
       </label>
 
@@ -92,13 +80,18 @@
       </button>
     </form>
 
-    <!-- عرض مباشر مع زر تبديل الخلفية -->
+    <!-- المعاينة -->
     <div class="mt-10 text-center">
       <h2 class="text-xl mb-2 text-orange-300">عرض مباشر:</h2>
 
-      <button onclick="toggleRoomMode()" class="mb-4 bg-white/10 hover:bg-white/20 px-4 py-2 rounded text-sm text-white">
-        تبديل عرض الغرفة
-      </button>
+      <div class="flex justify-center gap-4 mb-4">
+        <button onclick="toggleRoomMode()" class="bg-white/10 hover:bg-white/20 px-4 py-2 rounded text-sm text-white">
+          عرض في غرفة
+        </button>
+        <button onclick="toggleNeonPower()" id="toggleBtn" class="bg-white/10 hover:bg-white/20 px-4 py-2 rounded text-sm text-white">
+          إطفاء النيون
+        </button>
+      </div>
 
       <div id="acrylicBox" class="inline-block p-6 rounded-lg bg-white/5 backdrop-blur-md border border-white/10 shadow-xl relative transition-all duration-500">
         <div id="preview" class="neon-preview text-orange-400 font-cairo">
@@ -110,6 +103,8 @@
   </div>
 
   <script>
+    let neonOn = true;
+
     function updatePreview() {
       const text = document.getElementById("neonText").value || "اكتب نصك هنا";
       const color = document.getElementById("neonColor").value;
@@ -119,14 +114,21 @@
       const glow = document.getElementById("glowEffect");
 
       preview.textContent = text;
-      preview.style.color = color;
-      preview.className = `neon-preview ${fontClass}`;
-      glow.style.boxShadow = `0 0 30px 10px ${color}80`;
+      preview.style.color = neonOn ? color : "#dddddd";
+      preview.className = `neon-preview ${fontClass} ${neonOn ? '' : 'neon-off'}`;
+      glow.style.boxShadow = neonOn ? `0 0 30px 10px ${color}80` : "none";
     }
 
     function toggleRoomMode() {
       const box = document.getElementById("acrylicBox");
       box.classList.toggle("room-mode");
+    }
+
+    function toggleNeonPower() {
+      neonOn = !neonOn;
+      const btn = document.getElementById("toggleBtn");
+      btn.textContent = neonOn ? "إطفاء النيون" : "تشغيل النيون";
+      updatePreview();
     }
   </script>
 
