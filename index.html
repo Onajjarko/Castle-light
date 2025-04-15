@@ -4,6 +4,7 @@
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>CASTLE LIGHT</title>
+  <link href="https://fonts.googleapis.com/css2?family=Pacifico&family=Roboto&family=Orbitron&family=Press+Start+2P&family=Lobster&family=Oswald&family=Raleway&family=Anton&family=Bebas+Neue&family=Playfair+Display&family=Quicksand&family=Arvo&family=Fjalla+One&family=Kanit&family=Titillium+Web&family=Indie+Flower&family=Amatic+SC&family=Comfortaa&family=DM+Serif+Display&family=Great+Vibes&family=Josefin+Sans&family=Manrope&family=Merriweather&family=PT+Sans&family=Rubik&family=Satisfy&family=Signika&family=Ubuntu&family=Varela+Round&family=Yanone+Kaffeesatz&display=swap" rel="stylesheet">
   <style>
     body {
       font-family: Arial, sans-serif;
@@ -22,7 +23,6 @@
       font-weight: bold;
       margin: 30px 0;
       color: #ff00ff;
-      font-family: cursive;
       text-shadow:
         0 0 5px #ff00ff,
         0 0 10px #ff00ff,
@@ -38,7 +38,7 @@
       color: #000;
       border-radius: 10px;
       padding: 20px;
-      max-width: 400px;
+      max-width: 600px;
       margin: 0 auto;
     }
 
@@ -49,6 +49,21 @@
       margin-top: 10px;
       margin-bottom: 20px;
       font-size: 16px;
+    }
+
+    .color-palette {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 10px;
+      justify-content: center;
+    }
+
+    .color-swatch {
+      width: 30px;
+      height: 30px;
+      border-radius: 50%;
+      cursor: pointer;
+      border: 2px solid #000;
     }
 
     .cookie-banner {
@@ -86,26 +101,56 @@
 
   <div class="form-section">
     <h2>1. ENTER YOUR TEXT</h2>
-    <p>Create your own stunning Custom Neon sign in a few simple steps.</p>
     <input type="text" id="textInput" value="Osamah" />
 
     <h2>2. CHOOSE FONT</h2>
-    <p>Pick a font style that best matches your vibe.</p>
     <select id="fontSelect">
       <option value="cursive">Cursive</option>
-      <option value="monospace">Monospace</option>
-      <option value="sans-serif">Sans-serif</option>
-      <option value="serif">Serif</option>
+      <option value="Arial">Arial</option>
+      <option value="Verdana">Verdana</option>
+      <option value="Georgia">Georgia</option>
+      <option value="Tahoma">Tahoma</option>
+      <option value="Times New Roman">Times New Roman</option>
+      <option value="Courier New">Courier New</option>
+      <option value="Pacifico">Pacifico</option>
+      <option value="Roboto">Roboto</option>
+      <option value="Orbitron">Orbitron</option>
+      <option value="Press Start 2P">Press Start 2P</option>
+      <option value="Lobster">Lobster</option>
+      <option value="Oswald">Oswald</option>
+      <option value="Raleway">Raleway</option>
+      <option value="Anton">Anton</option>
+      <option value="Bebas Neue">Bebas Neue</option>
+      <option value="Playfair Display">Playfair Display</option>
+      <option value="Quicksand">Quicksand</option>
+      <option value="Arvo">Arvo</option>
+      <option value="Fjalla One">Fjalla One</option>
+      <option value="Kanit">Kanit</option>
+      <option value="Titillium Web">Titillium Web</option>
+      <option value="Indie Flower">Indie Flower</option>
+      <option value="Amatic SC">Amatic SC</option>
+      <option value="Comfortaa">Comfortaa</option>
+      <option value="DM Serif Display">DM Serif Display</option>
+      <option value="Great Vibes">Great Vibes</option>
+      <option value="Josefin Sans">Josefin Sans</option>
+      <option value="Manrope">Manrope</option>
+      <option value="Merriweather">Merriweather</option>
+      <option value="PT Sans">PT Sans</option>
+      <option value="Rubik">Rubik</option>
+      <option value="Satisfy">Satisfy</option>
+      <option value="Signika">Signika</option>
+      <option value="Ubuntu">Ubuntu</option>
+      <option value="Varela Round">Varela Round</option>
+      <option value="Yanone Kaffeesatz">Yanone Kaffeesatz</option>
     </select>
 
     <h2>3. PICK COLOR</h2>
-    <p>Choose your neon sign color.</p>
-    <input type="color" id="colorPicker" value="#ff00ff" />
+    <div class="color-palette" id="colorPalette"></div>
   </div>
 
   <div class="cookie-banner">
     <p>
-      Notice: This site uses cookies to provide necessary website functionality and improve your experience.
+      Notice: This site uses cookies to improve your experience.
       By using our website, you agree to our <a href="#">Privacy Policy</a>.
     </p>
     <button>Ok</button>
@@ -115,18 +160,32 @@
     const neonText = document.getElementById('neonText');
     const textInput = document.getElementById('textInput');
     const fontSelect = document.getElementById('fontSelect');
-    const colorPicker = document.getElementById('colorPicker');
+    const colorPalette = document.getElementById('colorPalette');
 
-    function updateNeonColor(color) {
-      neonText.style.color = color;
-      neonText.style.textShadow =
-        `0 0 5px ${color},
-         0 0 10px ${color},
-         0 0 20px ${color},
-         0 0 40px ${color},
-         0 0 60px ${color},
-         0 0 80px ${color}`;
-    }
+    const colors = [
+      '#ff00ff', '#00ffff', '#ff0000', '#00ff00', '#0000ff', '#ffff00', '#ffa500', '#ffffff',
+      '#00aaff', '#aa00ff', '#ff1493', '#ff8c00', '#7fff00', '#dc143c', '#00fa9a', '#1e90ff',
+      '#f0e68c', '#dda0dd', '#ff6347', '#adff2f', '#40e0d0', '#e6e6fa', '#a52a2a', '#ff69b4',
+      '#4682b4', '#b0e0e6', '#8a2be2', '#fa8072', '#d2691e', '#9acd32', '#ff4500', '#2e8b57',
+      '#6a5acd', '#ffe4e1', '#5f9ea0', '#f5deb3', '#00ced1', '#ffdab9', '#cd5c5c', '#f08080'
+    ];
+
+    colors.forEach(color => {
+      const swatch = document.createElement('div');
+      swatch.className = 'color-swatch';
+      swatch.style.backgroundColor = color;
+      swatch.addEventListener('click', () => {
+        neonText.style.color = color;
+        neonText.style.textShadow = `
+          0 0 5px ${color},
+          0 0 10px ${color},
+          0 0 20px ${color},
+          0 0 40px ${color},
+          0 0 60px ${color},
+          0 0 80px ${color}`;
+      });
+      colorPalette.appendChild(swatch);
+    });
 
     textInput.addEventListener('input', () => {
       neonText.textContent = textInput.value;
@@ -136,65 +195,9 @@
       neonText.style.fontFamily = fontSelect.value;
     });
 
-    colorPicker.addEventListener('input', () => {
-      updateNeonColor(colorPicker.value);
-    });
-
-    // Set initial neon color
-    updateNeonColor(colorPicker.value);
-
-    // Cookie banner logic
-    const cookieBanner = document.querySelector('.cookie-banner');
-    const okButton = cookieBanner.querySelector('button');
-
-    okButton.addEventListener('click', () => {
-      cookieBanner.style.display = 'none';
-      localStorage.setItem('cookiesAccepted', 'true');
-    });
-
-    window.addEventListener('load', () => {
-      if (localStorage.getItem('cookiesAccepted')) {
-        cookieBanner.style.display = 'none';
-      }
+    document.querySelector('.cookie-banner button').addEventListener('click', () => {
+      document.querySelector('.cookie-banner').style.display = 'none';
     });
   </script>
-<script>
-  const neonText = document.getElementById('neonText');
-  const textInput = document.getElementById('textInput');
-  const fontSelect = document.getElementById('fontSelect');
-  const colorPicker = document.getElementById('colorPicker');
-
-  textInput.addEventListener('input', () => {
-    neonText.textContent = textInput.value;
-  });
-
-  fontSelect.addEventListener('change', () => {
-    neonText.style.fontFamily = fontSelect.value;
-  });
-
-  colorPicker.addEventListener('input', () => {
-    const color = colorPicker.value;
-    neonText.style.color = color;
-    neonText.style.textShadow = `
-      0 0 5px ${color},
-      0 0 10px ${color},
-      0 0 20px ${color},
-      0 0 40px ${color},
-      0 0 60px ${color},
-      0 0 80px ${color}`;
-  });
-
-  // التعامل مع تنبيه الكوكيز
-  const cookieBanner = document.querySelector('.cookie-banner');
-  const cookieBtn = cookieBanner.querySelector('button');
-  if (localStorage.getItem('cookieAccepted')) {
-    cookieBanner.style.display = 'none';
-  }
-
-  cookieBtn.addEventListener('click', () => {
-    localStorage.setItem('cookieAccepted', 'true');
-    cookieBanner.style.display = 'none';
-  });
-</script>
 </body>
 </html>
