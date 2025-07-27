@@ -4,8 +4,36 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Castle Light - مصمم لافتات نيون</title>
-    <link href="https://fonts.googleapis.com/css2?family=Cairo:wght@300;400;600;700&display=swap" rel="stylesheet">
-    <link href="https://fonts.googleapis.com/css2?family=Almarai:wght@300;400;700&display=swap" rel="stylesheet">
+    <!-- خطوط نيون خاصة -->
+    <link href="https://fonts.cdnfonts.com/css/neon-absolute-sans" rel="stylesheet">
+    <link href="https://fonts.cdnfonts.com/css/neon" rel="stylesheet">
+    <link href="https://fonts.cdnfonts.com/css/neon-club-music" rel="stylesheet">
+    <link href="https://fonts.cdnfonts.com/css/neon-absolute-serif" rel="stylesheet">
+    <link href="https://fonts.cdnfonts.com/css/neon-frenzy" rel="stylesheet">
+    <link href="https://fonts.cdnfonts.com/css/neon-led-light" rel="stylesheet">
+    <link href="https://fonts.cdnfonts.com/css/neon-lights" rel="stylesheet">
+    <link href="https://fonts.cdnfonts.com/css/neon-marker" rel="stylesheet">
+    <link href="https://fonts.cdnfonts.com/css/neon-pixel-7" rel="stylesheet">
+    <link href="https://fonts.cdnfonts.com/css/neon-sans" rel="stylesheet">
+    <link href="https://fonts.cdnfonts.com/css/neon-stream" rel="stylesheet">
+    <link href="https://fonts.cdnfonts.com/css/neon-techno" rel="stylesheet">
+    <link href="https://fonts.cdnfonts.com/css/neon-tubes" rel="stylesheet">
+    <link href="https://fonts.cdnfonts.com/css/neon-80s" rel="stylesheet">
+    <link href="https://fonts.cdnfonts.com/css/neon-city" rel="stylesheet">
+    <link href="https://fonts.cdnfonts.com/css/neon-glow" rel="stylesheet">
+    <link href="https://fonts.cdnfonts.com/css/neon-led" rel="stylesheet">
+    <link href="https://fonts.cdnfonts.com/css/neon-signs" rel="stylesheet">
+    <link href="https://fonts.cdnfonts.com/css/neon-stripes" rel="stylesheet">
+    <link href="https://fonts.cdnfonts.com/css/neon-vintage" rel="stylesheet">
+    <link href="https://fonts.cdnfonts.com/css/neon-display" rel="stylesheet">
+    <link href="https://fonts.cdnfonts.com/css/neon-future" rel="stylesheet">
+    <link href="https://fonts.cdnfonts.com/css/neon-latin" rel="stylesheet">
+    <link href="https://fonts.cdnfonts.com/css/neon-modern" rel="stylesheet">
+    <link href="https://fonts.cdnfonts.com/css/neon-retro" rel="stylesheet">
+    <link href="https://fonts.cdnfonts.com/css/neon-script" rel="stylesheet">
+    <link href="https://fonts.cdnfonts.com/css/neon-square" rel="stylesheet">
+    <link href="https://fonts.cdnfonts.com/css/neon-tribal" rel="stylesheet">
+    <link href="https://fonts.cdnfonts.com/css/neon-urban" rel="stylesheet">
     <script src="https://cdnjs.cloudflare.com/ajax/libs/html2canvas/1.4.1/html2canvas.min.js"></script>
     <style>
         :root {
@@ -22,7 +50,6 @@
             margin: 0;
             padding: 0;
             box-sizing: border-box;
-            font-family: 'Cairo', sans-serif;
         }
         
         body {
@@ -64,7 +91,17 @@
             background: linear-gradient(90deg, #ff00cc, #3333ff);
         }
         
+        .store-title {
+            font-family: 'Neon Absolute Sans', sans-serif;
+            font-size: 3.5rem;
+            margin-bottom: 10px;
+            color: #fff;
+            text-shadow: 0 0 10px var(--neon-color), 0 0 20px var(--neon-color);
+            animation: neonPulse 1.5s infinite alternate;
+        }
+        
         h1 {
+            font-family: 'Neon', sans-serif;
             font-size: 2.8rem;
             margin-bottom: 15px;
             background: linear-gradient(90deg, #ff00cc, #3333ff);
@@ -73,38 +110,12 @@
             text-shadow: 0 0 15px rgba(255, 0, 204, 0.3);
         }
         
-        .store-title {
-            font-family: 'Almarai', sans-serif;
-            font-size: 3rem;
-            margin-bottom: 10px;
-            color: #fff;
-            text-shadow: 0 0 10px #ff00de, 0 0 20px #ff00de;
-        }
-        
         .subtitle {
             font-size: 1.2rem;
             opacity: 0.85;
             max-width: 700px;
             margin: 0 auto;
             color: #c5c5e3;
-        }
-        
-        .instructions {
-            background: rgba(106, 123, 255, 0.1);
-            padding: 15px;
-            border-radius: 10px;
-            margin-top: 20px;
-            border: 1px solid rgba(106, 123, 255, 0.3);
-        }
-        
-        .instructions ol {
-            text-align: right;
-            padding-right: 20px;
-            margin-top: 10px;
-        }
-        
-        .instructions li {
-            margin-bottom: 10px;
         }
         
         .designer-container {
@@ -185,11 +196,6 @@
             align-items: center;
         }
         
-        .control-title i {
-            margin-left: 10px;
-            font-size: 1.4rem;
-        }
-        
         #text-input {
             width: 100%;
             padding: 15px;
@@ -199,13 +205,6 @@
             border-radius: 8px;
             color: var(--text-color);
             margin-bottom: 20px;
-            transition: all 0.3s;
-        }
-        
-        #text-input:focus {
-            outline: none;
-            border-color: var(--accent-color);
-            box-shadow: 0 0 0 2px rgba(106, 123, 255, 0.3);
         }
         
         .fonts-container {
@@ -215,12 +214,6 @@
             max-height: 400px;
             overflow-y: auto;
             padding: 10px;
-        }
-        
-        @media (max-width: 600px) {
-            .fonts-container {
-                grid-template-columns: repeat(2, 1fr);
-            }
         }
         
         .font-option {
@@ -236,8 +229,7 @@
         
         .font-option:hover {
             transform: translateY(-3px);
-            border-color: rgba(106, 123, 255, 0.5);
-            box-shadow: 0 5px 15px rgba(106, 123, 255, 0.2);
+            border-color: var(--accent-color);
         }
         
         .font-option.active {
@@ -245,16 +237,41 @@
             background: rgba(106, 123, 255, 0.1);
         }
         
+        /* تعريفات الخطوط النيونية */
+        .font-neon-absolute { font-family: 'Neon Absolute Sans', sans-serif; }
+        .font-neon-basic { font-family: 'Neon', sans-serif; }
+        .font-neon-club { font-family: 'Neon Club Music', sans-serif; }
+        .font-neon-serif { font-family: 'Neon Absolute Serif', sans-serif; }
+        .font-neon-frenzy { font-family: 'Neon Frenzy', sans-serif; }
+        .font-neon-led { font-family: 'Neon Led Light', sans-serif; }
+        .font-neon-lights { font-family: 'Neon Lights', sans-serif; }
+        .font-neon-marker { font-family: 'Neon Marker', sans-serif; }
+        .font-neon-pixel { font-family: 'Neon Pixel-7', sans-serif; }
+        .font-neon-sans { font-family: 'Neon Sans', sans-serif; }
+        .font-neon-stream { font-family: 'Neon Stream', sans-serif; }
+        .font-neon-techno { font-family: 'Neon Techno', sans-serif; }
+        .font-neon-tubes { font-family: 'Neon Tubes', sans-serif; }
+        .font-neon-80s { font-family: 'Neon 80s', sans-serif; }
+        .font-neon-city { font-family: 'Neon City', sans-serif; }
+        .font-neon-glow { font-family: 'Neon Glow', sans-serif; }
+        .font-neon-led2 { font-family: 'Neon LED', sans-serif; }
+        .font-neon-signs { font-family: 'Neon Signs', sans-serif; }
+        .font-neon-stripes { font-family: 'Neon Stripes', sans-serif; }
+        .font-neon-vintage { font-family: 'Neon Vintage', sans-serif; }
+        .font-neon-display { font-family: 'Neon Display', sans-serif; }
+        .font-neon-future { font-family: 'Neon Future', sans-serif; }
+        .font-neon-latin { font-family: 'Neon Latin', sans-serif; }
+        .font-neon-modern { font-family: 'Neon Modern', sans-serif; }
+        .font-neon-retro { font-family: 'Neon Retro', sans-serif; }
+        .font-neon-script { font-family: 'Neon Script', sans-serif; }
+        .font-neon-square { font-family: 'Neon Square', sans-serif; }
+        .font-neon-tribal { font-family: 'Neon Tribal', sans-serif; }
+        .font-neon-urban { font-family: 'Neon Urban', sans-serif; }
+        
         .colors-container {
             display: grid;
             grid-template-columns: repeat(6, 1fr);
             gap: 15px;
-        }
-        
-        @media (max-width: 600px) {
-            .colors-container {
-                grid-template-columns: repeat(4, 1fr);
-            }
         }
         
         .color-option {
@@ -262,15 +279,7 @@
             border-radius: 8px;
             cursor: pointer;
             transition: all 0.3s ease;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            font-size: 1.5rem;
             border: 2px solid transparent;
-        }
-        
-        .color-option:hover {
-            transform: scale(1.05);
         }
         
         .color-option.active {
@@ -293,10 +302,6 @@
             cursor: pointer;
             transition: all 0.3s ease;
             font-weight: 600;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            gap: 10px;
         }
         
         .btn-primary {
@@ -310,15 +315,6 @@
             border: 1px solid rgba(255, 255, 255, 0.2);
         }
         
-        .btn:hover {
-            transform: translateY(-3px);
-            box-shadow: 0 7px 15px rgba(0, 0, 0, 0.3);
-        }
-        
-        .btn:active {
-            transform: translateY(-1px);
-        }
-        
         footer {
             text-align: center;
             padding: 30px;
@@ -327,12 +323,6 @@
             border-radius: 15px;
             box-shadow: 0 10px 30px rgba(0, 0, 0, 0.3);
             border: 1px solid var(--border-color);
-        }
-        
-        .store-name {
-            font-size: 1.8rem;
-            margin-bottom: 15px;
-            color: var(--accent-color);
         }
         
         .contact-info {
@@ -350,58 +340,12 @@
             background: var(--input-bg);
             padding: 10px 20px;
             border-radius: 30px;
-            font-size: 0.9rem;
-            transition: all 0.3s;
-        }
-        
-        .contact-item:hover {
-            transform: translateY(-2px);
-            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.2);
-        }
-        
-        .success-message {
-            position: fixed;
-            top: 20px;
-            right: 20px;
-            background: rgba(25, 135, 84, 0.9);
-            color: white;
-            padding: 15px 25px;
-            border-radius: 8px;
-            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.3);
-            z-index: 1000;
-            transform: translateX(120%);
-            transition: transform 0.4s ease;
-        }
-        
-        .success-message.show {
-            transform: translateX(0);
         }
         
         @keyframes neonPulse {
-            0% {
-                opacity: 0.9;
-                text-shadow: 
-                    0 0 5px #fff,
-                    0 0 10px var(--neon-color),
-                    0 0 20px var(--neon-color),
-                    0 0 40px var(--neon-color);
-            }
-            50% {
-                opacity: 1;
-                text-shadow: 
-                    0 0 10px #fff,
-                    0 0 20px var(--neon-color),
-                    0 0 30px var(--neon-color),
-                    0 0 50px var(--neon-color);
-            }
-            100% {
-                opacity: 0.9;
-                text-shadow: 
-                    0 0 5px #fff,
-                    0 0 10px var(--neon-color),
-                    0 0 20px var(--neon-color),
-                    0 0 40px var(--neon-color);
-            }
+            0% { text-shadow: 0 0 5px #fff, 0 0 10px var(--neon-color), 0 0 20px var(--neon-color); }
+            50% { text-shadow: 0 0 10px #fff, 0 0 20px var(--neon-color), 0 0 30px var(--neon-color); }
+            100% { text-shadow: 0 0 5px #fff, 0 0 10px var(--neon-color), 0 0 20px var(--neon-color); }
         }
     </style>
 </head>
@@ -409,68 +353,56 @@
     <div class="container">
         <header>
             <div class="store-title">Castle Light</div>
-            <h1>مصمم لافتات النيون</h1>
-            <p class="subtitle">صمم لافتتك النيونية المخصصة بنفسك! اختر النص، الخط واللون المفضل لديك وشاهد المعاينة المباشرة</p>
-            
-            <div class="instructions">
-                <h3>كيف تستخدم المصمم:</h3>
-                <ol>
-                    <li>اكتب النص الذي تريده في حقل إدخال النص</li>
-                    <li>اختر نوع الخط المناسب من الخيارات المتاحة</li>
-                    <li>اختر لون النيون الذي يعجبك</li>
-                    <li>شاهد التغييرات تحدث مباشرة في معاينة اللافتة</li>
-                    <li>انقر على "حفظ التصميم" لتحميل الصورة النهائية</li>
-                </ol>
-            </div>
+            <h1>مصمم لافتات نيون</h1>
+            <p class="subtitle">اختر النص والخط واللون المفضل لديك لإنشاء لافتة نيون مخصصة</p>
         </header>
         
         <div class="designer-container">
             <div class="preview-section">
                 <h2 class="preview-title">معاينة اللافتة</h2>
                 <div class="neon-preview">
-                    <div id="neon-text">Castle Light</div>
+                    <div id="neon-text" class="font-neon-absolute">Castle Light</div>
                 </div>
             </div>
             
             <div class="controls-section">
                 <div class="control-group">
                     <h3 class="control-title">نص اللافتة</h3>
-                    <input type="text" id="text-input" placeholder="أدخل النص الذي تريده هنا..." value="Castle Light">
+                    <input type="text" id="text-input" placeholder="أدخل النص هنا..." value="Castle Light">
                 </div>
                 
                 <div class="control-group">
-                    <h3 class="control-title">اختيار الخط (30 خيار)</h3>
+                    <h3 class="control-title">اختيار الخط (30 خيار نيون)</h3>
                     <div class="fonts-container">
-                        <div class="font-option active" data-font="'Arial', sans-serif">كلاسيكي</div>
-                        <div class="font-option" data-font="'Times New Roman', serif">رسمي</div>
-                        <div class="font-option" data-font="'Courier New', monospace">آلة كاتبة</div>
-                        <div class="font-option" data-font="'Georgia', serif">أنيق</div>
-                        <div class="font-option" data-font="'Palatino Linotype', 'Book Antiqua', Palatino, serif">كلاسيكي أنيق</div>
-                        <div class="font-option" data-font="'Garamond', serif">تقليدي</div>
-                        <div class="font-option" data-font="'Impact', sans-serif">جريء</div>
-                        <div class="font-option" data-font="'Comic Sans MS', cursive">غير رسمي</div>
-                        <div class="font-option" data-font="'Brush Script MT', cursive">يدوي</div>
-                        <div class="font-option" data-font="'Lucida Handwriting', cursive">أنيق يدوي</div>
-                        <div class="font-option" data-font="'Papyrus', fantasy">فني</div>
-                        <div class="font-option" data-font="'Verdana', sans-serif">حديث</div>
-                        <div class="font-option" data-font="'Trebuchet MS', sans-serif">جريء حديث</div>
-                        <div class="font-option" data-font="'Century Gothic', sans-serif">مستقبلي</div>
-                        <div class="font-option" data-font="'Copperplate', fantasy">فخم</div>
-                        <div class="font-option" data-font="'Bauhaus 93', sans-serif">فني حديث</div>
-                        <div class="font-option" data-font="'Jokerman', fantasy">مميز</div>
-                        <div class="font-option" data-font="'Ravie', fantasy">جرافيتي</div>
-                        <div class="font-option" data-font="'Stencil', fantasy">ميداني</div>
-                        <div class="font-option" data-font="'Algerian', fantasy">عربي كلاسيكي</div>
-                        <div class="font-option" data-font="'Cairo', sans-serif">عربي حديث</div>
-                        <div class="font-option" data-font="'Almarai', sans-serif">عربي أنيق</div>
-                        <div class="font-option" data-font="'Arial Black', sans-serif">عريض</div>
-                        <div class="font-option" data-font="'Franklin Gothic Medium', sans-serif">قوي</div>
-                        <div class="font-option" data-font="'Goudy Stout', fantasy">سميك</div>
-                        <div class="font-option" data-font="'Magneto', fantasy">فني مميز</div>
-                        <div class="font-option" data-font="'Mistral', cursive">يدوي أنيق</div>
-                        <div class="font-option" data-font="'Onyx', serif">فخم</div>
-                        <div class="font-option" data-font="'Pristina', cursive">رشيق</div>
-                        <div class="font-option" data-font="'Viner Hand ITC', cursive">كلاسيكي يدوي</div>
+                        <div class="font-option active font-neon-absolute" data-font="font-neon-absolute">نيون مطلق</div>
+                        <div class="font-option font-neon-basic" data-font="font-neon-basic">نيون أساسي</div>
+                        <div class="font-option font-neon-club" data-font="font-neon-club">نيون كلوب</div>
+                        <div class="font-option font-neon-serif" data-font="font-neon-serif">نيون سيريف</div>
+                        <div class="font-option font-neon-frenzy" data-font="font-neon-frenzy">نيون فرينزي</div>
+                        <div class="font-option font-neon-led" data-font="font-neon-led">نيون LED</div>
+                        <div class="font-option font-neon-lights" data-font="font-neon-lights">نيون لايتس</div>
+                        <div class="font-option font-neon-marker" data-font="font-neon-marker">نيون ماركر</div>
+                        <div class="font-option font-neon-pixel" data-font="font-neon-pixel">نيون بيكسل</div>
+                        <div class="font-option font-neon-sans" data-font="font-neon-sans">نيون سانس</div>
+                        <div class="font-option font-neon-stream" data-font="font-neon-stream">نيون ستريم</div>
+                        <div class="font-option font-neon-techno" data-font="font-neon-techno">نيون تكنو</div>
+                        <div class="font-option font-neon-tubes" data-font="font-neon-tubes">نيون تيوب</div>
+                        <div class="font-option font-neon-80s" data-font="font-neon-80s">نيون 80s</div>
+                        <div class="font-option font-neon-city" data-font="font-neon-city">نيون سيتي</div>
+                        <div class="font-option font-neon-glow" data-font="font-neon-glow">نيون جلو</div>
+                        <div class="font-option font-neon-led2" data-font="font-neon-led2">نيون LED 2</div>
+                        <div class="font-option font-neon-signs" data-font="font-neon-signs">نيون ساينز</div>
+                        <div class="font-option font-neon-stripes" data-font="font-neon-stripes">نيون سترايبس</div>
+                        <div class="font-option font-neon-vintage" data-font="font-neon-vintage">نيون فنتراج</div>
+                        <div class="font-option font-neon-display" data-font="font-neon-display">نيون ديسبلاي</div>
+                        <div class="font-option font-neon-future" data-font="font-neon-future">نيون فيوتشر</div>
+                        <div class="font-option font-neon-latin" data-font="font-neon-latin">نيون لاتين</div>
+                        <div class="font-option font-neon-modern" data-font="font-neon-modern">نيون مودرن</div>
+                        <div class="font-option font-neon-retro" data-font="font-neon-retro">نيون رترو</div>
+                        <div class="font-option font-neon-script" data-font="font-neon-script">نيون سكريبت</div>
+                        <div class="font-option font-neon-square" data-font="font-neon-square">نيون سكوير</div>
+                        <div class="font-option font-neon-tribal" data-font="font-neon-tribal">نيون تريبل</div>
+                        <div class="font-option font-neon-urban" data-font="font-neon-urban">نيون أوربان</div>
                     </div>
                 </div>
                 
@@ -493,127 +425,81 @@
                 </div>
                 
                 <div class="actions">
-                    <button class="btn btn-primary" id="download-btn">
-                        <i>💾</i> حفظ التصميم
-                    </button>
-                    <button class="btn btn-secondary" id="reset-btn">
-                        <i>🔄</i> إعادة تعيين
-                    </button>
+                    <button class="btn btn-primary" id="download-btn">حفظ التصميم</button>
+                    <button class="btn btn-secondary" id="reset-btn">إعادة تعيين</button>
                 </div>
             </div>
         </div>
         
         <footer>
-            <div class="store-name">Castle Light - لافتات نيون مخصصة</div>
-            <p>صمم لافتتك النيونية المثالية معنا. جودة عالية، أسعار تنافسية، وتنفيذ سريع.</p>
-            
             <div class="contact-info">
                 <div class="contact-item">
-                    <i>📱</i> 0795892011
+                    <span>📱</span> 0795892011
                 </div>
                 <div class="contact-item">
-                    <i>✉️</i> info@castlelight.com
-                </div>
-                <div class="contact-item">
-                    <i>🏠</i> عمان، الأردن
+                    <span>✉️</span> info@castlelight.com
                 </div>
             </div>
         </footer>
     </div>
-    
-    <div class="success-message" id="success-message">
-        تم حفظ التصميم بنجاح! يمكنك الآن إرساله لنا لتنفيذ اللافتة.
-    </div>
-    
+
     <script>
-        // عناصر DOM
-        const textInput = document.getElementById('text-input');
-        const neonText = document.getElementById('neon-text');
-        const fontOptions = document.querySelectorAll('.font-option');
-        const colorOptions = document.querySelectorAll('.color-option');
-        const downloadBtn = document.getElementById('download-btn');
-        const resetBtn = document.getElementById('reset-btn');
-        const successMessage = document.getElementById('success-message');
-        
-        // تعيين اللون الافتراضي
-        let currentColor = '#ff00de';
-        
-        // تحديث النص
-        textInput.addEventListener('input', function() {
-            neonText.textContent = this.value || 'Castle Light';
-        });
-        
-        // تغيير الخط
-        fontOptions.forEach(option => {
-            option.addEventListener('click', function() {
+        document.addEventListener('DOMContentLoaded', function() {
+            const textInput = document.getElementById('text-input');
+            const neonText = document.getElementById('neon-text');
+            const fontOptions = document.querySelectorAll('.font-option');
+            const colorOptions = document.querySelectorAll('.color-option');
+            const downloadBtn = document.getElementById('download-btn');
+            const resetBtn = document.getElementById('reset-btn');
+            
+            let currentColor = '#ff00de';
+            
+            textInput.addEventListener('input', function() {
+                neonText.textContent = this.value || 'Castle Light';
+            });
+            
+            fontOptions.forEach(option => {
+                option.addEventListener('click', function() {
+                    fontOptions.forEach(opt => opt.classList.remove('active'));
+                    this.classList.add('active');
+                    neonText.className = '';
+                    neonText.classList.add(this.dataset.font);
+                });
+            });
+            
+            colorOptions.forEach(option => {
+                option.addEventListener('click', function() {
+                    colorOptions.forEach(opt => opt.classList.remove('active'));
+                    this.classList.add('active');
+                    currentColor = this.dataset.color;
+                    document.documentElement.style.setProperty('--neon-color', currentColor);
+                });
+            });
+            
+            downloadBtn.addEventListener('click', function() {
+                html2canvas(neonText).then(canvas => {
+                    const link = document.createElement('a');
+                    link.download = 'castle-light-neon.png';
+                    link.href = canvas.toDataURL('image/png');
+                    link.click();
+                });
+            });
+            
+            resetBtn.addEventListener('click', function() {
+                textInput.value = 'Castle Light';
+                neonText.textContent = 'Castle Light';
+                
                 fontOptions.forEach(opt => opt.classList.remove('active'));
-                this.classList.add('active');
-                neonText.style.fontFamily = this.dataset.font;
-            });
-        });
-        
-        // تغيير اللون
-        colorOptions.forEach(option => {
-            option.addEventListener('click', function() {
+                fontOptions[0].classList.add('active');
+                neonText.className = '';
+                neonText.classList.add(fontOptions[0].dataset.font);
+                
                 colorOptions.forEach(opt => opt.classList.remove('active'));
-                this.classList.add('active');
-                currentColor = this.dataset.color;
-                updateNeonEffect();
+                colorOptions[0].classList.add('active');
+                currentColor = colorOptions[0].dataset.color;
+                document.documentElement.style.setProperty('--neon-color', currentColor);
             });
         });
-        
-        // تحديث تأثير النيون
-        function updateNeonEffect() {
-            neonText.style.textShadow = `
-                0 0 5px #fff,
-                0 0 10px ${currentColor},
-                0 0 20px ${currentColor},
-                0 0 40px ${currentColor},
-                0 0 80px ${currentColor}
-            `;
-            
-            // تحديث متغير CSS للرسوم المتحركة
-            document.documentElement.style.setProperty('--neon-color', currentColor);
-        }
-        
-        // تنزيل التصميم
-        downloadBtn.addEventListener('click', function() {
-            // إظهار رسالة النجاح
-            successMessage.classList.add('show');
-            
-            // إخفاء الرسالة بعد 3 ثواني
-            setTimeout(() => {
-                successMessage.classList.remove('show');
-            }, 3000);
-            
-            // التقاط صورة للتصميم
-            html2canvas(neonText).then(canvas => {
-                // إنشاء رابط للتحميل
-                const link = document.createElement('a');
-                link.download = 'castle-light-neon-design.png';
-                link.href = canvas.toDataURL('image/png');
-                link.click();
-            });
-        });
-        
-        // إعادة التعيين
-        resetBtn.addEventListener('click', function() {
-            textInput.value = 'Castle Light';
-            neonText.textContent = 'Castle Light';
-            
-            fontOptions.forEach(opt => opt.classList.remove('active'));
-            fontOptions[0].classList.add('active');
-            neonText.style.fontFamily = fontOptions[0].dataset.font;
-            
-            colorOptions.forEach(opt => opt.classList.remove('active'));
-            colorOptions[0].classList.add('active');
-            currentColor = colorOptions[0].dataset.color;
-            
-            updateNeonEffect();
-        });
-        
-        // التهيئة الأولية
-        updateNeonEffect();
     </script>
 </body>
 </html>
