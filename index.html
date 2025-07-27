@@ -3,8 +3,9 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>مصمم لافتات النيون - متجرك</title>
+    <title>Castle Light - مصمم لافتات نيون</title>
     <link href="https://fonts.googleapis.com/css2?family=Cairo:wght@300;400;600;700&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Almarai:wght@300;400;700&display=swap" rel="stylesheet">
     <script src="https://cdnjs.cloudflare.com/ajax/libs/html2canvas/1.4.1/html2canvas.min.js"></script>
     <style>
         :root {
@@ -70,6 +71,14 @@
             -webkit-background-clip: text;
             -webkit-text-fill-color: transparent;
             text-shadow: 0 0 15px rgba(255, 0, 204, 0.3);
+        }
+        
+        .store-title {
+            font-family: 'Almarai', sans-serif;
+            font-size: 3rem;
+            margin-bottom: 10px;
+            color: #fff;
+            text-shadow: 0 0 10px #ff00de, 0 0 20px #ff00de;
         }
         
         .subtitle {
@@ -153,6 +162,7 @@
                 0 0 10px var(--neon-color),
                 0 0 20px var(--neon-color),
                 0 0 40px var(--neon-color);
+            animation: neonPulse 2s infinite;
         }
         
         .controls-section {
@@ -202,6 +212,9 @@
             display: grid;
             grid-template-columns: repeat(3, 1fr);
             gap: 15px;
+            max-height: 400px;
+            overflow-y: auto;
+            padding: 10px;
         }
         
         @media (max-width: 600px) {
@@ -395,6 +408,7 @@
 <body>
     <div class="container">
         <header>
+            <div class="store-title">Castle Light</div>
             <h1>مصمم لافتات النيون</h1>
             <p class="subtitle">صمم لافتتك النيونية المخصصة بنفسك! اختر النص، الخط واللون المفضل لديك وشاهد المعاينة المباشرة</p>
             
@@ -414,25 +428,49 @@
             <div class="preview-section">
                 <h2 class="preview-title">معاينة اللافتة</h2>
                 <div class="neon-preview">
-                    <div id="neon-text">متجرك</div>
+                    <div id="neon-text">Castle Light</div>
                 </div>
             </div>
             
             <div class="controls-section">
                 <div class="control-group">
                     <h3 class="control-title">نص اللافتة</h3>
-                    <input type="text" id="text-input" placeholder="أدخل النص الذي تريده هنا..." value="متجرك">
+                    <input type="text" id="text-input" placeholder="أدخل النص الذي تريده هنا..." value="Castle Light">
                 </div>
                 
                 <div class="control-group">
-                    <h3 class="control-title">اختيار الخط</h3>
+                    <h3 class="control-title">اختيار الخط (30 خيار)</h3>
                     <div class="fonts-container">
-                        <div class="font-option active" data-font="'Cairo', sans-serif">كلاسيكي</div>
-                        <div class="font-option" data-font="'Arial', sans-serif">حديث</div>
+                        <div class="font-option active" data-font="'Arial', sans-serif">كلاسيكي</div>
+                        <div class="font-option" data-font="'Times New Roman', serif">رسمي</div>
+                        <div class="font-option" data-font="'Courier New', monospace">آلة كاتبة</div>
                         <div class="font-option" data-font="'Georgia', serif">أنيق</div>
-                        <div class="font-option" data-font="'Courier New', monospace">كتابي</div>
-                        <div class="font-option" data-font="'Brush Script MT', cursive">يدوي</div>
+                        <div class="font-option" data-font="'Palatino Linotype', 'Book Antiqua', Palatino, serif">كلاسيكي أنيق</div>
+                        <div class="font-option" data-font="'Garamond', serif">تقليدي</div>
                         <div class="font-option" data-font="'Impact', sans-serif">جريء</div>
+                        <div class="font-option" data-font="'Comic Sans MS', cursive">غير رسمي</div>
+                        <div class="font-option" data-font="'Brush Script MT', cursive">يدوي</div>
+                        <div class="font-option" data-font="'Lucida Handwriting', cursive">أنيق يدوي</div>
+                        <div class="font-option" data-font="'Papyrus', fantasy">فني</div>
+                        <div class="font-option" data-font="'Verdana', sans-serif">حديث</div>
+                        <div class="font-option" data-font="'Trebuchet MS', sans-serif">جريء حديث</div>
+                        <div class="font-option" data-font="'Century Gothic', sans-serif">مستقبلي</div>
+                        <div class="font-option" data-font="'Copperplate', fantasy">فخم</div>
+                        <div class="font-option" data-font="'Bauhaus 93', sans-serif">فني حديث</div>
+                        <div class="font-option" data-font="'Jokerman', fantasy">مميز</div>
+                        <div class="font-option" data-font="'Ravie', fantasy">جرافيتي</div>
+                        <div class="font-option" data-font="'Stencil', fantasy">ميداني</div>
+                        <div class="font-option" data-font="'Algerian', fantasy">عربي كلاسيكي</div>
+                        <div class="font-option" data-font="'Cairo', sans-serif">عربي حديث</div>
+                        <div class="font-option" data-font="'Almarai', sans-serif">عربي أنيق</div>
+                        <div class="font-option" data-font="'Arial Black', sans-serif">عريض</div>
+                        <div class="font-option" data-font="'Franklin Gothic Medium', sans-serif">قوي</div>
+                        <div class="font-option" data-font="'Goudy Stout', fantasy">سميك</div>
+                        <div class="font-option" data-font="'Magneto', fantasy">فني مميز</div>
+                        <div class="font-option" data-font="'Mistral', cursive">يدوي أنيق</div>
+                        <div class="font-option" data-font="'Onyx', serif">فخم</div>
+                        <div class="font-option" data-font="'Pristina', cursive">رشيق</div>
+                        <div class="font-option" data-font="'Viner Hand ITC', cursive">كلاسيكي يدوي</div>
                     </div>
                 </div>
                 
@@ -466,18 +504,18 @@
         </div>
         
         <footer>
-            <div class="store-name">متجرك لتصنيع لافتات النيون</div>
+            <div class="store-name">Castle Light - لافتات نيون مخصصة</div>
             <p>صمم لافتتك النيونية المثالية معنا. جودة عالية، أسعار تنافسية، وتنفيذ سريع.</p>
             
             <div class="contact-info">
                 <div class="contact-item">
-                    <i>📱</i> 0555555555
+                    <i>📱</i> 0795892011
                 </div>
                 <div class="contact-item">
-                    <i>✉️</i> info@yourstore.com
+                    <i>✉️</i> info@castlelight.com
                 </div>
                 <div class="contact-item">
-                    <i>🏠</i> الرياض، المملكة العربية السعودية
+                    <i>🏠</i> عمان، الأردن
                 </div>
             </div>
         </footer>
@@ -502,7 +540,7 @@
         
         // تحديث النص
         textInput.addEventListener('input', function() {
-            neonText.textContent = this.value || 'متجرك';
+            neonText.textContent = this.value || 'Castle Light';
         });
         
         // تغيير الخط
@@ -536,9 +574,6 @@
             
             // تحديث متغير CSS للرسوم المتحركة
             document.documentElement.style.setProperty('--neon-color', currentColor);
-            
-            // إضافة رسوم متحركة للنبض
-            neonText.style.animation = 'neonPulse 2s infinite';
         }
         
         // تنزيل التصميم
@@ -555,7 +590,7 @@
             html2canvas(neonText).then(canvas => {
                 // إنشاء رابط للتحميل
                 const link = document.createElement('a');
-                link.download = 'neon-design.png';
+                link.download = 'castle-light-neon-design.png';
                 link.href = canvas.toDataURL('image/png');
                 link.click();
             });
@@ -563,8 +598,8 @@
         
         // إعادة التعيين
         resetBtn.addEventListener('click', function() {
-            textInput.value = 'متجرك';
-            neonText.textContent = 'متجرك';
+            textInput.value = 'Castle Light';
+            neonText.textContent = 'Castle Light';
             
             fontOptions.forEach(opt => opt.classList.remove('active'));
             fontOptions[0].classList.add('active');
@@ -579,21 +614,6 @@
         
         // التهيئة الأولية
         updateNeonEffect();
-        
-        // إضافة تأثيرات تفاعلية إضافية
-        document.querySelectorAll('.btn').forEach(btn => {
-            btn.addEventListener('mousedown', function() {
-                this.style.transform = 'translateY(1px)';
-            });
-            
-            btn.addEventListener('mouseup', function() {
-                this.style.transform = 'translateY(-3px)';
-            });
-            
-            btn.addEventListener('mouseleave', function() {
-                this.style.transform = 'translateY(0)';
-            });
-        });
     </script>
 </body>
 </html>
